@@ -1,0 +1,2726 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    127938,       2718]
+NotebookOptionsPosition[    122138,       2637]
+NotebookOutlinePosition[    122535,       2653]
+CellTagsIndexPosition[    122492,       2650]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Radius", "[", "h_", "]"}], "=", 
+   RowBox[{"r", "/.", " ", 
+    RowBox[{"First", "@", 
+     RowBox[{"Solve", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Pi", " ", "r", " ", 
+           RowBox[{"Sqrt", "[", 
+            RowBox[{
+             RowBox[{"r", "^", "2"}], "+", 
+             RowBox[{"h", "^", "2"}]}], "]"}], " ", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"1", "+", "h"}], ")"}], "/", "2"}]}], "\[Equal]", 
+          RowBox[{"Pi", "/", "2"}]}], ",", 
+         RowBox[{"h", ">", "0"}]}], "}"}], ",", "r", ",", "Reals"}], 
+      "]"}]}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Radius", "[", "0", "]"}], "=", "1"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"AnimatedCone", "[", 
+    RowBox[{"h_", ",", "m_"}], "]"}], ":=", 
+   RowBox[{"ParametricPlot3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", "z"}], ")"}], " ", "m", " ", 
+        RowBox[{"Radius", "[", "h", "]"}]}], ",", 
+       RowBox[{
+        RowBox[{"Sin", "[", "\[Theta]", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", "z"}], ")"}], " ", "m", " ", 
+        RowBox[{"Radius", "[", "h", "]"}]}], ",", 
+       RowBox[{"h", " ", "z"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Theta]", ",", "0", ",", 
+       RowBox[{"Pi", "+", 
+        RowBox[{"h", " ", "Pi"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z", ",", "0", ",", "1"}], "}"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", "Blue"}], ",", 
+     RowBox[{"MeshFunctions", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"#2", "&"}], "}"}]}], ",", 
+     RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"1.5", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}]}], ",", 
+     RowBox[{"BoundaryStyle", "\[Rule]", 
+      RowBox[{"GrayLevel", "[", ".1", "]"}]}], ",", 
+     RowBox[{"PerformanceGoal", "\[Rule]", "\"\<Quality\>\""}], ",", 
+     RowBox[{"Axes", "\[Rule]", "False"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"axes", "=", 
+   RowBox[{"Graphics3D", "[", 
+    RowBox[{"{", 
+     RowBox[{"Green", ",", 
+      RowBox[{"Arrowheads", "[", "Medium", "]"}], ",", 
+      RowBox[{"MapThread", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Arrow", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+              RowBox[{"1.4", " ", "#2"}]}], "}"}], "]"}], ",", 
+           RowBox[{"Text", "[", 
+            RowBox[{"#", ",", 
+             RowBox[{"1.5", " ", "#2"}]}], "]"}]}], "}"}], "&"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"\"\<X\>\"", ",", "\"\<Y\>\"", ",", "\"\<Z\>\""}], "}"}], 
+          ",", 
+          RowBox[{"IdentityMatrix", "[", "3", "]"}]}], "}"}]}], "]"}]}], 
+     "}"}], "]"}]}], ";"}], "\n", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"AnimatedCone", "[", 
+      RowBox[{"h", ",", "m"}], "]"}], ",", "axes"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"h", ",", "0", ",", "\"\<height\>\""}], "}"}], ",", "0", ",", 
+     "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"m", ",", "1", ",", "\"\<scale factor\>\""}], "}"}], ",", "0.1",
+      ",", "2"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.903313895879572*^9, 3.9033138958988857`*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"7b11d1af-eab7-4995-9e6f-8201d1a85505"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Radius", "[", "h_", "]"}], "=", 
+   RowBox[{"r", "/.", " ", 
+    RowBox[{"First", "@", 
+     RowBox[{"Solve", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Pi", " ", "r", " ", 
+           RowBox[{"Sqrt", "[", 
+            RowBox[{
+             RowBox[{"r", "^", "2"}], "+", 
+             RowBox[{"h", "^", "2"}]}], "]"}], " ", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"1", "+", "h"}], ")"}], "/", "2"}]}], "\[Equal]", 
+          RowBox[{"Pi", "/", "2"}]}], ",", 
+         RowBox[{"h", ">", "0"}]}], "}"}], ",", "r", ",", "Reals"}], 
+      "]"}]}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Radius", "[", "0", "]"}], "=", "1"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"AnimatedCone", "[", 
+    RowBox[{"h_", ",", "m_", ",", "c_"}], "]"}], ":=", 
+   RowBox[{"ParametricPlot3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", "z"}], ")"}], " ", "m", " ", 
+        RowBox[{"Radius", "[", "h", "]"}]}], ",", 
+       RowBox[{
+        RowBox[{"Sin", "[", "\[Theta]", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", "z"}], ")"}], " ", "m", " ", 
+        RowBox[{"Radius", "[", "h", "]"}]}], ",", 
+       RowBox[{"h", " ", "z"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Theta]", ",", "0", ",", 
+       RowBox[{"Pi", "+", 
+        RowBox[{"h", " ", "Pi"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z", ",", "0", ",", "1"}], "}"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", "c"}], ",", 
+     RowBox[{"MeshFunctions", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"#2", "&"}], "}"}]}], ",", 
+     RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"1.5", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}]}], ",", 
+     RowBox[{"BoundaryStyle", "\[Rule]", 
+      RowBox[{"GrayLevel", "[", ".1", "]"}]}], ",", 
+     RowBox[{"PerformanceGoal", "\[Rule]", "\"\<Quality\>\""}], ",", 
+     RowBox[{"Axes", "\[Rule]", "False"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"axes", "=", 
+   RowBox[{"Graphics3D", "[", 
+    RowBox[{"{", 
+     RowBox[{"Green", ",", 
+      RowBox[{"Arrowheads", "[", "Medium", "]"}], ",", 
+      RowBox[{"MapThread", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Arrow", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+              RowBox[{"1.4", " ", "#2"}]}], "}"}], "]"}], ",", 
+           RowBox[{"Text", "[", 
+            RowBox[{"#", ",", 
+             RowBox[{"1.5", " ", "#2"}]}], "]"}]}], "}"}], "&"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"\"\<X\>\"", ",", "\"\<Y\>\"", ",", "\"\<Z\>\""}], "}"}], 
+          ",", 
+          RowBox[{"IdentityMatrix", "[", "3", "]"}]}], "}"}]}], "]"}]}], 
+     "}"}], "]"}]}], ";"}], "\n", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"AnimatedCone", "[", 
+      RowBox[{"h", ",", "m", ",", "c"}], "]"}], ",", "axes"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"h", ",", "0", ",", "\"\<height\>\""}], "}"}], ",", "0", ",", 
+     "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"m", ",", "1", ",", "\"\<scale factor\>\""}], "}"}], ",", "0.1",
+      ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"c", ",", "Blue", ",", "\"\<color\>\""}], "}"}], ",", "Blue", 
+     ",", "Red", ",", "Green"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.903314006115902*^9, 3.9033140061534567`*^9}},
+ CellLabel->"In[34]:=",ExpressionUUID->"a0804ad6-b48d-451a-9c68-2a4dcbb2caad"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`c$$ = RGBColor[0, 0, 1], $CellContext`h$$ = 
+    0.79, $CellContext`m$$ = 1.774, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`h$$], 0, "height"}, 0, 1}, {{
+       Hold[$CellContext`m$$], 1, "scale factor"}, 0.1, 2}, {{
+       Hold[$CellContext`c$$], 
+       RGBColor[0, 0, 1], "color"}, 
+      RGBColor[0, 0, 1], 
+      RGBColor[1, 0, 0], 
+      RGBColor[0, 1, 0]}}, Typeset`size$$ = {360., {179., 184.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`c$$ = RGBColor[0, 0, 1], $CellContext`h$$ = 
+        0, $CellContext`m$$ = 1}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[
+        $CellContext`AnimatedCone[$CellContext`h$$, $CellContext`m$$, \
+$CellContext`c$$], $CellContext`axes], 
+      "Specifications" :> {{{$CellContext`h$$, 0, "height"}, 0, 
+         1}, {{$CellContext`m$$, 1, "scale factor"}, 0.1, 
+         2}, {{$CellContext`c$$, 
+          RGBColor[0, 0, 1], "color"}, 
+         RGBColor[0, 0, 1], 
+         RGBColor[1, 0, 0], 
+         RGBColor[0, 1, 0]}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{405., {245., 251.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.903314006805389*^9, 3.9033821185825853`*^9, 
+  3.903382688026332*^9, 3.906324965730678*^9},
+ CellLabel->"Out[38]=",ExpressionUUID->"1f9ffbc3-baca-4579-921d-2100e287e9a4"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Radius", "[", "h_", "]"}], ":=", 
+   RowBox[{"r", "/.", "\[IndentingNewLine]", 
+    RowBox[{"First", "@", 
+     RowBox[{"Solve", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Pi", " ", "r", " ", 
+           RowBox[{"Sqrt", "[", 
+            RowBox[{
+             RowBox[{"r", "^", "2"}], "+", 
+             RowBox[{"h", "^", "2"}]}], "]"}], " ", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"1", "+", "h"}], ")"}], "/", "2"}]}], "\[Equal]", 
+          RowBox[{"Pi", "/", "2"}]}], ",", 
+         RowBox[{"h", ">", "0"}]}], "}"}], ",", "r", ",", "Reals"}], 
+      "]"}]}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Radius", "[", "0", "]"}], "=", "1"}], ";"}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ta", "[", "h_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{"2", " ", "Pi"}], "-", 
+    RowBox[{"2", " ", "Pi", " ", 
+     RowBox[{"Sqrt", "[", 
+      RowBox[{
+       RowBox[{"r", "^", "2"}], "-", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"r", " ", 
+          RowBox[{"Sin", "[", 
+           RowBox[{"beta", "[", "h", "]"}], "]"}]}], ")"}], "^", "2"}]}], 
+      "]"}]}]}]}], "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"beta", "[", "h_", "]"}], ":=", 
+   RowBox[{"ArcSin", "[", 
+    RowBox[{
+     RowBox[{"Sqrt", "[", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"4", " ", "Pi"}], "-", 
+         RowBox[{"ta", "[", "h", "]"}]}], ")"}], " ", 
+       RowBox[{"ta", "[", "h", "]"}]}], "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{"2", " ", "Pi"}], ")"}]}], "]"}]}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"AnimatedCone", "[", "h_", "]"}], ":=", 
+    RowBox[{"ParametricPlot3D", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Cos", "[", "\[Theta]", "]"}], " ", 
+         RowBox[{"(", 
+          RowBox[{"1", "-", "z"}], ")"}], " ", 
+         RowBox[{"Radius", "[", "h", "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"Sin", "[", "\[Theta]", "]"}], " ", 
+         RowBox[{"(", 
+          RowBox[{"1", "-", "z"}], ")"}], " ", 
+         RowBox[{"Radius", "[", "h", "]"}]}], ",", 
+        RowBox[{"h", " ", "z"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\[Theta]", ",", "0", ",", 
+        RowBox[{
+         RowBox[{"ta", "[", "h", "]"}], "+", 
+         RowBox[{"h", " ", "Pi"}]}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"z", ",", "0", ",", "1"}], "}"}], ",", 
+      RowBox[{"PlotStyle", "\[Rule]", "Blue"}], ",", 
+      RowBox[{"MeshFunctions", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"#2", "&"}], "}"}]}], ",", 
+      RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+      RowBox[{"PlotRange", "\[Rule]", 
+       RowBox[{"1.5", " ", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}]}], ",", 
+      RowBox[{"BoundaryStyle", "\[Rule]", 
+       RowBox[{"GrayLevel", "[", ".1", "]"}]}], ",", 
+      RowBox[{"PerformanceGoal", "\[Rule]", "\"\<Quality\>\""}], ",", 
+      RowBox[{"Axes", "\[Rule]", "False"}]}], "]"}]}], ";"}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"axes", "=", 
+   RowBox[{"Graphics3D", "[", 
+    RowBox[{"{", 
+     RowBox[{"Green", ",", 
+      RowBox[{"Arrowheads", "[", "Medium", "]"}], ",", 
+      RowBox[{"MapThread", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Arrow", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+              RowBox[{"1.4", " ", "#2"}]}], "}"}], "]"}], ",", 
+           RowBox[{"Text", "[", 
+            RowBox[{"#", ",", 
+             RowBox[{"1.5", " ", "#2"}]}], "]"}]}], "}"}], "&"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"\"\<X\>\"", ",", "\"\<Y\>\"", ",", "\"\<Z\>\""}], "}"}], 
+          ",", 
+          RowBox[{"IdentityMatrix", "[", "3", "]"}]}], "}"}]}], "]"}]}], 
+     "}"}], "]"}]}], ";"}], "\n", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"AnimatedCone", "[", "h", "]"}], ",", "axes"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"h", ",", "0", ",", "\"\<Height\>\""}], "}"}], ",", "0", ",", 
+     "1"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.9033141151296797`*^9, 3.903314115162285*^9}},
+ CellLabel->"In[19]:=",ExpressionUUID->"995475c4-f9ff-4f23-82f4-eb02f17d68eb"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`h$$ = 0.626, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`h$$], 0, "Height"}, 0, 1}}, Typeset`size$$ = {
+    360., {179., 184.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`h$$ = 0}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[
+        $CellContext`AnimatedCone[$CellContext`h$$], $CellContext`axes], 
+      "Specifications" :> {{{$CellContext`h$$, 0, "Height"}, 0, 1}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{405., {224., 230.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.9033141159131536`*^9},
+ CellLabel->"Out[25]=",ExpressionUUID->"b7ae97b3-3447-4cd4-85a6-61cbf39bbc39"]
+}, Open  ]],
+
+Cell[BoxData[
+ FractionBox[
+  SqrtBox[
+   RowBox[{
+    RowBox[{"3.5481432270250993`*^18", " ", 
+     SuperscriptBox["\[Eta]", "2"]}], "-", 
+    RowBox[{"1.1294090667581471`*^18", " ", 
+     SuperscriptBox["r", "2"], " ", "\[Theta]"}], "+", 
+    RowBox[{"8.987551787368176`*^16", " ", 
+     SuperscriptBox["r", "2"], " ", 
+     SuperscriptBox["\[Theta]", "2"]}]}]], 
+  SqrtBox[
+   RowBox[{
+    RowBox[{"39.47841760435743`", " ", 
+     SuperscriptBox["\[Eta]", "2"]}], "-", 
+    RowBox[{"12.566370614359172`", " ", 
+     SuperscriptBox["r", "2"], " ", "\[Theta]"}], "+", 
+    RowBox[{
+     SuperscriptBox["r", "2"], " ", 
+     SuperscriptBox["\[Theta]", "2"]}]}]]]], "Input",ExpressionUUID->\
+"e5c23280-638c-4ef1-8100-5ffccc38720b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Radius", "[", "h_", "]"}], "=", 
+   RowBox[{"r", "/.", " ", 
+    RowBox[{"First", "@", 
+     RowBox[{"Solve", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"Pi", " ", "r"}], "+", 
+           RowBox[{
+            RowBox[{"h", "^", "3"}], " ", 
+            RowBox[{"Sqrt", "[", 
+             RowBox[{
+              RowBox[{"r", "^", "2"}], "+", 
+              RowBox[{"h", "^", "2"}]}], "]"}], " ", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"1", "+", "h"}], ")"}], "/", "2"}]}]}], "\[Equal]", 
+          RowBox[{"Pi", "/", "2"}]}], ",", 
+         RowBox[{"h", ">", "0"}]}], "}"}], ",", "r", ",", "Reals"}], 
+      "]"}]}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Radius", "[", "0", "]"}], "=", "1"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"AnimatedCone", "[", 
+    RowBox[{"h_", ",", "m_", ",", "c_"}], "]"}], ":=", 
+   RowBox[{"ParametricPlot3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", "z"}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"\[Sqrt]", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"-", "1.1294090667581471`*^18"}], " ", "\[Theta]"}], 
+              "+", 
+              RowBox[{"8.987551787368176`*^16", " ", 
+               SuperscriptBox["\[Theta]", "2"]}], "+", 
+              RowBox[{"3.5481432270250993`*^18", " ", 
+               SuperscriptBox[
+                RowBox[{"Sin", "[", "m", "]"}], "2"]}]}], ")"}]}], ")"}], "/", 
+          RowBox[{"(", 
+           SqrtBox[
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "12.566370614359172`"}], " ", "\[Theta]"}], "+", 
+             SuperscriptBox["\[Theta]", "2"], "+", 
+             RowBox[{"39.47841760435743`", " ", 
+              SuperscriptBox[
+               RowBox[{"Sin", "[", "m", "]"}], "2"]}]}]], ")"}]}], ")"}], " ", 
+        RowBox[{"Radius", "[", "h", "]"}]}], ",", 
+       RowBox[{
+        RowBox[{"Sin", "[", "\[Theta]", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", "z"}], ")"}], " ", "m", " ", 
+        RowBox[{"Radius", "[", "h", "]"}]}], ",", 
+       RowBox[{"h", " ", "z"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Theta]", ",", "0", ",", 
+       RowBox[{"Pi", "+", 
+        RowBox[{"h", " ", "Pi"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z", ",", "0", ",", "1"}], "}"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", "c"}], ",", 
+     RowBox[{"MeshFunctions", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"#2", "&"}], "}"}]}], ",", 
+     RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"1.5", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}]}], ",", 
+     RowBox[{"BoundaryStyle", "\[Rule]", 
+      RowBox[{"GrayLevel", "[", ".1", "]"}]}], ",", 
+     RowBox[{"PerformanceGoal", "\[Rule]", "\"\<Quality\>\""}], ",", 
+     RowBox[{"Axes", "\[Rule]", "False"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"axes", "=", 
+   RowBox[{"Graphics3D", "[", 
+    RowBox[{"{", 
+     RowBox[{"Green", ",", 
+      RowBox[{"Arrowheads", "[", "Medium", "]"}], ",", 
+      RowBox[{"MapThread", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Arrow", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+              RowBox[{"1.4", " ", "#2"}]}], "}"}], "]"}], ",", 
+           RowBox[{"Text", "[", 
+            RowBox[{"#", ",", 
+             RowBox[{"1.5", " ", "#2"}]}], "]"}]}], "}"}], "&"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"\"\<X\>\"", ",", "\"\<Y\>\"", ",", "\"\<Z\>\""}], "}"}], 
+          ",", 
+          RowBox[{"IdentityMatrix", "[", "3", "]"}]}], "}"}]}], "]"}]}], 
+     "}"}], "]"}]}], ";"}], "\n", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"AnimatedCone", "[", 
+      RowBox[{"h", ",", "m", ",", "c"}], "]"}], ",", "axes"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"h", ",", "0", ",", "\"\<height\>\""}], "}"}], ",", "0", ",", 
+     "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"m", ",", "1", ",", "\"\<scale factor\>\""}], "}"}], ",", "0.1",
+      ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"c", ",", "Blue", ",", "\"\<color\>\""}], "}"}], ",", "Blue", 
+     ",", "Red", ",", "Green"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.903314006115902*^9, 3.9033140061534567`*^9}, {
+  3.903383488114421*^9, 3.903383516260379*^9}, {3.903383551878598*^9, 
+  3.90338355966218*^9}},
+ CellLabel->
+  "In[182]:=",ExpressionUUID->"29832913-7a68-4f7d-8d82-5a129e061089"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`c$$ = RGBColor[0, 0, 1], $CellContext`h$$ = 
+    0.96, $CellContext`m$$ = 0.45799999999999996`, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`h$$], 0, "height"}, 0, 1}, {{
+       Hold[$CellContext`m$$], 1, "scale factor"}, 0.1, 2}, {{
+       Hold[$CellContext`c$$], 
+       RGBColor[0, 0, 1], "color"}, 
+      RGBColor[0, 0, 1], 
+      RGBColor[1, 0, 0], 
+      RGBColor[0, 1, 0]}}, Typeset`size$$ = {360., {179., 184.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`c$$ = RGBColor[0, 0, 1], $CellContext`h$$ = 
+        0, $CellContext`m$$ = 1}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[
+        $CellContext`AnimatedCone[$CellContext`h$$, $CellContext`m$$, \
+$CellContext`c$$], $CellContext`axes], 
+      "Specifications" :> {{{$CellContext`h$$, 0, "height"}, 0, 
+         1}, {{$CellContext`m$$, 1, "scale factor"}, 0.1, 
+         2}, {{$CellContext`c$$, 
+          RGBColor[0, 0, 1], "color"}, 
+         RGBColor[0, 0, 1], 
+         RGBColor[1, 0, 0], 
+         RGBColor[0, 1, 0]}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{405., {245., 251.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.903383490857855*^9, 3.903383517263159*^9}, 
+   3.903383561748802*^9},
+ CellLabel->
+  "Out[186]=",ExpressionUUID->"a2045a34-78bd-4663-a10a-fefabb3530bb"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Visualization`Core`ParametricPlot3D", "plln", 
+   "\"Limiting value \\!\\(\\*TemplateBox[List[RowBox[List[\\\"\\\\[Pi]\\\", \
+\\\"+\\\", RowBox[List[\\\"\\\\[Pi]\\\", \\\" \\\", \
+RowBox[List[\\\"ArcSin\\\", \\\"[\\\", \
+FractionBox[SqrtBox[RowBox[List[RowBox[List[\\\"Plus\\\", \\\"[\\\", \
+RowBox[List[\\\"\\\\[LeftSkeleton]\\\", \\\"2\\\", \
+\\\"\\\\[RightSkeleton]\\\"]], \\\"]\\\"]], \\\" \\\", \
+RowBox[List[\\\"RGBColor\\\", \\\"[\\\", RowBox[List[\\\"\\\\[LeftSkeleton]\\\
+\", \\\"3\\\", \\\"\\\\[RightSkeleton]\\\"]], \\\"]\\\"]]]]], \
+RowBox[List[\\\"2\\\", \\\" \\\", \\\"\\\\[Pi]\\\"]]], \\\"]\\\"]]]]]], \
+RowBox[List[\\\"0\\\", \\\"<\\\", \
+InterpretationBox[ButtonBox[TooltipBox[GraphicsBox[List[List[GrayLevel[0], \
+RectangleBox[List[0, 0]]], List[GrayLevel[0], RectangleBox[List[1, -1]]], \
+List[RGBColor[0, 0, 1], RectangleBox[List[0, -1], List[2, 1]]]], \
+Rule[DefaultBaseStyle, \\\"ColorSwatchGraphics\\\"], Rule[AspectRatio, 1], \
+Rule[Frame, True], Rule[FrameStyle, RGBColor[0.`, 0.`, 0.6666666666666666`]], \
+Rule[FrameTicks, None], Rule[PlotRangePadding, None], Rule[ImageSize, \
+Dynamic[List[Automatic, Times[1.35`, \
+Times[CurrentValue[\\\"FontCapHeight\\\"], \
+Power[AbsoluteCurrentValue[Magnification], -1]]]]]]], StyleBox[RowBox[List[\\\
+\"RGBColor\\\", \\\"[\\\", RowBox[List[\\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\
+\\\", \\\"1\\\"]], \\\"]\\\"]], Rule[NumberMarks, False]]], Rule[Appearance, \
+None], Rule[BaseStyle, List[]], Rule[BaselinePosition, Baseline], \
+Rule[DefaultBaseStyle, List[]], RuleDelayed[ButtonFunction, \
+With[List[Set[Typeset`box$, EvaluationBox[]]], If[Not[AbsoluteCurrentValue[\\\
+\"Deployed\\\"]], CompoundExpression[SelectionMove[Typeset`box$, All, \
+Expression], Set[FrontEnd`Private`$ColorSelectorInitialAlpha, 1], \
+Set[FrontEnd`Private`$ColorSelectorInitialColor, RGBColor[0, 0, 1]], \
+Set[FrontEnd`Private`$ColorSelectorUseMakeBoxes, True], \
+MathLink`CallFrontEnd[FrontEnd`AttachCell[Typeset`box$, \
+FrontEndResource[\\\"RGBColorValueSelector\\\"], List[0, List[Left, Bottom]], \
+List[Left, Top], Rule[\\\"ClosingActions\\\", \
+List[\\\"SelectionDeparture\\\", \\\"ParentChanged\\\", \
+\\\"EvaluatorQuit\\\"]]]]]]]], Rule[BaseStyle, Inherited], Rule[Evaluator, \
+Automatic], Rule[Method, \\\"Preemptive\\\"]], RGBColor[0, 0, 1], \
+Rule[Editable, False], Rule[Selectable, False]], \\\"\\\\[LessEqual]\\\", \
+RowBox[List[\\\"4\\\", \\\" \\\", \\\"\\\\[Pi]\\\"]]]]], \
+\\\"ConditionalExpression\\\"]\\) in \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"\
+\[Phi]\\\", \\\",\\\", \\\"0\\\", \\\",\\\", RowBox[{\\\"\[Pi]\\\", \
+\\\"+\\\", RowBox[{RowBox[{\\\"ConeAngle\\\", \\\"[\\\", \
+RowBox[{\\\"0.96`\\\", \\\",\\\", \\\"0.45799999999999996`\\\", \\\",\\\", \
+InterpretationBox[ButtonBox[TooltipBox[GraphicsBox[List[List[GrayLevel[0], \
+RectangleBox[List[0, 0]]], List[GrayLevel[0], RectangleBox[List[1, -1]]], \
+List[RGBColor[0, 0, 1], RectangleBox[List[0, -1], List[2, 1]]]], \
+Rule[DefaultBaseStyle, \\\"ColorSwatchGraphics\\\"], Rule[AspectRatio, 1], \
+Rule[Frame, True], Rule[FrameStyle, RGBColor[0.`, 0.`, 0.6666666666666666`]], \
+Rule[FrameTicks, None], Rule[PlotRangePadding, None], Rule[ImageSize, \
+Dynamic[List[Automatic, Times[1.35`, \
+Times[CurrentValue[\\\"FontCapHeight\\\"], \
+Power[AbsoluteCurrentValue[Magnification], -1]]]]]]], StyleBox[RowBox[List[\\\
+\"RGBColor\\\", \\\"[\\\", RowBox[List[\\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\
+\\\", \\\"1\\\"]], \\\"]\\\"]], Rule[NumberMarks, False]]], Rule[Appearance, \
+None], Rule[BaseStyle, List[]], Rule[BaselinePosition, Baseline], \
+Rule[DefaultBaseStyle, List[]], RuleDelayed[ButtonFunction, \
+With[List[Set[Typeset`box$, EvaluationBox[]]], If[Not[AbsoluteCurrentValue[\\\
+\"Deployed\\\"]], CompoundExpression[SelectionMove[Typeset`box$, All, \
+Expression], Set[FrontEnd`Private`$ColorSelectorInitialAlpha, 1], \
+Set[FrontEnd`Private`$ColorSelectorInitialColor, RGBColor[0, 0, 1]], \
+Set[FrontEnd`Private`$ColorSelectorUseMakeBoxes, True], \
+MathLink`CallFrontEnd[FrontEnd`AttachCell[Typeset`box$, \
+FrontEndResource[\\\"RGBColorValueSelector\\\"], List[0, List[Left, Bottom]], \
+List[Left, Top], Rule[\\\"ClosingActions\\\", \
+List[\\\"SelectionDeparture\\\", \\\"ParentChanged\\\", \
+\\\"EvaluatorQuit\\\"]]]]]]]], Rule[BaseStyle, Inherited], Rule[Evaluator, \
+Automatic], Rule[Method, \\\"Preemptive\\\"]], RGBColor[0, 0, 1], \
+Rule[Editable, False], Rule[Selectable, False]]}], \\\"]\\\"}], \\\" \\\", \\\
+\"\[Pi]\\\"}]}]}], \\\"}\\\"}]\\) is not a machine-sized real number.\"", 2, 
+   192, 182, 34094668452967596491, "Local", 
+   "Visualization`Core`ParametricPlot3D"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.903396006091735*^9},
+ CellLabel->"",ExpressionUUID->"5d8bbffc-5690-423a-b28e-8b8a6a781bf8"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show", "gcomb", 
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"ParametricPlot3D\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{RowBox[{RowBox[{\\\"Cos\\\", \\\"[\\\", \\\
+\"\[Phi]\\\", \\\"]\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \
+\\\"-\\\", \\\"z\\\"}], \\\")\\\"}], \\\" \\\", \\\"0.45799999999999996`\\\", \
+\\\" \\\", RowBox[{\\\"Radius\\\", \\\"[\\\", RowBox[{\\\"0.96`\\\", \
+\\\",\\\", \\\"0.45799999999999996`\\\", \\\",\\\", \
+InterpretationBox[ButtonBox[TooltipBox[GraphicsBox[List[List[GrayLevel[0], \
+RectangleBox[List[0, 0]]], List[GrayLevel[0], RectangleBox[List[1, -1]]], \
+List[RGBColor[0, 0, 1], RectangleBox[List[0, -1], List[2, 1]]]], \
+Rule[DefaultBaseStyle, \\\"ColorSwatchGraphics\\\"], Rule[AspectRatio, 1], \
+Rule[Frame, True], Rule[FrameStyle, RGBColor[0.`, 0.`, 0.6666666666666666`]], \
+Rule[FrameTicks, None], Rule[PlotRangePadding, None], Rule[ImageSize, \
+Dynamic[List[Automatic, Times[1.35`, \
+Times[CurrentValue[\\\"FontCapHeight\\\"], \
+Power[AbsoluteCurrentValue[Magnification], -1]]]]]]], StyleBox[RowBox[List[\\\
+\"RGBColor\\\", \\\"[\\\", RowBox[List[\\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\
+\\\", \\\"1\\\"]], \\\"]\\\"]], Rule[NumberMarks, False]]], Rule[Appearance, \
+None], Rule[BaseStyle, List[]], Rule[BaselinePosition, Baseline], \
+Rule[DefaultBaseStyle, List[]], RuleDelayed[ButtonFunction, \
+With[List[Set[Typeset`box$, EvaluationBox[]]], If[Not[AbsoluteCurrentValue[\\\
+\"Deployed\\\"]], CompoundExpression[SelectionMove[Typeset`box$, All, \
+Expression], Set[FrontEnd`Private`$ColorSelectorInitialAlpha, 1], \
+Set[FrontEnd`Private`$ColorSelectorInitialColor, RGBColor[0, 0, 1]], \
+Set[FrontEnd`Private`$ColorSelectorUseMakeBoxes, True], \
+MathLink`CallFrontEnd[FrontEnd`AttachCell[Typeset`box$, \
+FrontEndResource[\\\"RGBColorValueSelector\\\"], List[0, List[Left, Bottom]], \
+List[Left, Top], Rule[\\\"ClosingActions\\\", \
+List[\\\"SelectionDeparture\\\", \\\"ParentChanged\\\", \
+\\\"EvaluatorQuit\\\"]]]]]]]], Rule[BaseStyle, Inherited], Rule[Evaluator, \
+Automatic], Rule[Method, \\\"Preemptive\\\"]], RGBColor[0, 0, 1], \
+Rule[Editable, False], Rule[Selectable, False]]}], \\\"]\\\"}]}], \\\",\\\", \
+RowBox[{RowBox[{\\\"Sin\\\", \\\"[\\\", \\\"\[Phi]\\\", \\\"]\\\"}], \\\" \
+\\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"z\\\"}], \
+\\\")\\\"}], \\\" \\\", \\\"0.45799999999999996`\\\", \\\" \\\", \
+RowBox[{\\\"Radius\\\", \\\"[\\\", RowBox[{\\\"0.96`\\\", \\\",\\\", \
+\\\"0.45799999999999996`\\\", \\\",\\\", \
+InterpretationBox[ButtonBox[TooltipBox[GraphicsBox[List[List[GrayLevel[0], \
+RectangleBox[List[0, 0]]], List[GrayLevel[0], RectangleBox[List[1, -1]]], \
+List[RGBColor[0, 0, 1], RectangleBox[List[0, -1], List[2, 1]]]], \
+Rule[DefaultBaseStyle, \\\"ColorSwatchGraphics\\\"], Rule[AspectRatio, 1], \
+Rule[Frame, True], Rule[FrameStyle, RGBColor[0.`, 0.`, 0.6666666666666666`]], \
+Rule[FrameTicks, None], Rule[PlotRangePadding, None], Rule[ImageSize, \
+Dynamic[List[Automatic, Times[1.35`, \
+Times[CurrentValue[\\\"FontCapHeight\\\"], \
+Power[AbsoluteCurrentValue[Magnification], -1]]]]]]], StyleBox[RowBox[List[\\\
+\"RGBColor\\\", \\\"[\\\", RowBox[List[\\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\
+\\\", \\\"1\\\"]], \\\"]\\\"]], Rule[NumberMarks, False]]], Rule[Appearance, \
+None], Rule[BaseStyle, List[]], Rule[BaselinePosition, Baseline], \
+Rule[DefaultBaseStyle, List[]], RuleDelayed[ButtonFunction, \
+With[List[Set[Typeset`box$, EvaluationBox[]]], If[Not[AbsoluteCurrentValue[\\\
+\"Deployed\\\"]], CompoundExpression[SelectionMove[Typeset`box$, All, \
+Expression], Set[FrontEnd`Private`$ColorSelectorInitialAlpha, 1], \
+Set[FrontEnd`Private`$ColorSelectorInitialColor, RGBColor[0, 0, 1]], \
+Set[FrontEnd`Private`$ColorSelectorUseMakeBoxes, True], \
+MathLink`CallFrontEnd[FrontEnd`AttachCell[Typeset`box$, \
+FrontEndResource[\\\"RGBColorValueSelector\\\"], List[0, List[Left, Bottom]], \
+List[Left, Top], Rule[\\\"ClosingActions\\\", \
+List[\\\"SelectionDeparture\\\", \\\"ParentChanged\\\", \
+\\\"EvaluatorQuit\\\"]]]]]]]], Rule[BaseStyle, Inherited], Rule[Evaluator, \
+Automatic], Rule[Method, \\\"Preemptive\\\"]], RGBColor[0, 0, 1], \
+Rule[Editable, False], Rule[Selectable, False]]}], \\\"]\\\"}]}], \\\",\\\", \
+RowBox[{\\\"0.96`\\\", \\\" \\\", \\\"z\\\"}]}], \\\"}\\\"}], \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"\[Phi]\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \
+RowBox[{\\\"\[Pi]\\\", \\\"+\\\", RowBox[{RowBox[{\\\"ConeAngle\\\", \
+\\\"[\\\", RowBox[{\\\"0.96`\\\", \\\",\\\", \\\"0.45799999999999996`\\\", \\\
+\",\\\", InterpretationBox[ButtonBox[TooltipBox[GraphicsBox[List[List[\
+GrayLevel[0], RectangleBox[List[0, 0]]], List[GrayLevel[0], \
+RectangleBox[List[1, -1]]], List[RGBColor[0, 0, 1], RectangleBox[List[0, -1], \
+List[2, 1]]]], Rule[DefaultBaseStyle, \\\"ColorSwatchGraphics\\\"], \
+Rule[AspectRatio, 1], Rule[Frame, True], Rule[FrameStyle, RGBColor[0.`, 0.`, \
+0.6666666666666666`]], Rule[FrameTicks, None], Rule[PlotRangePadding, None], \
+Rule[ImageSize, Dynamic[List[Automatic, Times[1.35`, \
+Times[CurrentValue[\\\"FontCapHeight\\\"], \
+Power[AbsoluteCurrentValue[Magnification], -1]]]]]]], StyleBox[RowBox[List[\\\
+\"RGBColor\\\", \\\"[\\\", RowBox[List[\\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\
+\\\", \\\"1\\\"]], \\\"]\\\"]], Rule[NumberMarks, False]]], Rule[Appearance, \
+None], Rule[BaseStyle, List[]], Rule[BaselinePosition, Baseline], \
+Rule[DefaultBaseStyle, List[]], RuleDelayed[ButtonFunction, \
+With[List[Set[Typeset`box$, EvaluationBox[]]], If[Not[AbsoluteCurrentValue[\\\
+\"Deployed\\\"]], CompoundExpression[SelectionMove[Typeset`box$, All, \
+Expression], Set[FrontEnd`Private`$ColorSelectorInitialAlpha, 1], \
+Set[FrontEnd`Private`$ColorSelectorInitialColor, RGBColor[0, 0, 1]], \
+Set[FrontEnd`Private`$ColorSelectorUseMakeBoxes, True], \
+MathLink`CallFrontEnd[FrontEnd`AttachCell[Typeset`box$, \
+FrontEndResource[\\\"RGBColorValueSelector\\\"], List[0, List[Left, Bottom]], \
+List[Left, Top], Rule[\\\"ClosingActions\\\", \
+List[\\\"SelectionDeparture\\\", \\\"ParentChanged\\\", \
+\\\"EvaluatorQuit\\\"]]]]]]]], Rule[BaseStyle, Inherited], Rule[Evaluator, \
+Automatic], Rule[Method, \\\"Preemptive\\\"]], RGBColor[0, 0, 1], \
+Rule[Editable, False], Rule[Selectable, False]]}], \\\"]\\\"}], \\\" \\\", \\\
+\"\[Pi]\\\"}]}]}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"z\\\
+\", \\\",\\\", \\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", \
+RowBox[{\\\"PlotStyle\\\", \\\"\[Rule]\\\", \\\"Blue\\\"}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"3\\\", \\\"\[RightSkeleton]\\\"}], \\\",\
+\\\", RowBox[{\\\"BoundaryStyle\\\", \\\"\[Rule]\\\", \
+InterpretationBox[ButtonBox[TooltipBox[GraphicsBox[List[List[GrayLevel[0], \
+RectangleBox[List[0, 0]]], List[GrayLevel[0], RectangleBox[List[1, -1]]], \
+List[GrayLevel[0.1`], RectangleBox[List[0, -1], List[2, 1]]]], \
+Rule[DefaultBaseStyle, \\\"ColorSwatchGraphics\\\"], Rule[AspectRatio, 1], \
+Rule[Frame, True], Rule[FrameStyle, GrayLevel[0.06666666666666668`]], \
+Rule[FrameTicks, None], Rule[PlotRangePadding, None], Rule[ImageSize, \
+Dynamic[List[Automatic, Times[1.35`, \
+Times[CurrentValue[\\\"FontCapHeight\\\"], \
+Power[AbsoluteCurrentValue[Magnification], -1]]]]]]], StyleBox[RowBox[List[\\\
+\"GrayLevel\\\", \\\"[\\\", \\\"0.1`\\\", \\\"]\\\"]], Rule[NumberMarks, \
+False]]], Rule[Appearance, None], Rule[BaseStyle, List[]], \
+Rule[BaselinePosition, Baseline], Rule[DefaultBaseStyle, List[]], \
+RuleDelayed[ButtonFunction, With[List[Set[Typeset`box$, EvaluationBox[]]], \
+If[Not[AbsoluteCurrentValue[\\\"Deployed\\\"]], \
+CompoundExpression[SelectionMove[Typeset`box$, All, Expression], \
+Set[FrontEnd`Private`$ColorSelectorInitialAlpha, 1], \
+Set[FrontEnd`Private`$ColorSelectorInitialColor, GrayLevel[0.1`]], \
+Set[FrontEnd`Private`$ColorSelectorUseMakeBoxes, True], \
+MathLink`CallFrontEnd[FrontEnd`AttachCell[Typeset`box$, \
+FrontEndResource[\\\"GrayLevelColorValueSelector\\\"], List[0, List[Left, \
+Bottom]], List[Left, Top], Rule[\\\"ClosingActions\\\", \
+List[\\\"SelectionDeparture\\\", \\\"ParentChanged\\\", \
+\\\"EvaluatorQuit\\\"]]]]]]]], Rule[BaseStyle, Inherited], Rule[Evaluator, \
+Automatic], Rule[Method, \\\"Preemptive\\\"]], GrayLevel[0.1`], \
+Rule[Editable, False], Rule[Selectable, False]]}], \\\",\\\", \
+RowBox[{\\\"PerformanceGoal\\\", \\\"\[Rule]\\\", \\\"\\\\\\\"Quality\\\\\\\"\
+\\\"}], \\\",\\\", RowBox[{\\\"Axes\\\", \\\"\[Rule]\\\", \\\"False\\\"}]}], \
+\\\"]\\\"}], \\\",\\\", Graphics3DBox[List[RGBColor[0, 1, 0], \
+Arrowheads[Medium], List[List[Arrow3DBox[List[List[Skeleton[3]], \
+List[Skeleton[3]]]], Text3DBox[FormBox[\\\"\\\\\\\"X\\\\\\\"\\\", \
+TraditionalForm], List[1.5`, 0.`, 0.`]]], \
+List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"Y\\\\\\\"\\\", TraditionalForm], List[0.`, \
+1.5`, 0.`]]], List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"Z\\\\\\\"\\\", TraditionalForm], List[0.`, 0.`, \
+1.5`]]]]]]}], \\\"]\\\"}]\\).\"", 2, 192, 183, 34094668452967596491, "Local"},
+  
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.903396006185356*^9},
+ CellLabel->"",ExpressionUUID->"f7d2c21f-c2b6-4daa-9dd0-7975a8667505"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Visualization`Core`ParametricPlot3D", "plln", 
+   "\"Limiting value \\!\\(\\*TemplateBox[List[RowBox[List[\\\"\\\\[Pi]\\\", \
+\\\"+\\\", RowBox[List[\\\"\\\\[Pi]\\\", \\\" \\\", \
+RowBox[List[\\\"ArcSin\\\", \\\"[\\\", \
+FractionBox[SqrtBox[RowBox[List[RowBox[List[\\\"Plus\\\", \\\"[\\\", \
+RowBox[List[\\\"\\\\[LeftSkeleton]\\\", \\\"2\\\", \
+\\\"\\\\[RightSkeleton]\\\"]], \\\"]\\\"]], \\\" \\\", \
+RowBox[List[\\\"RGBColor\\\", \\\"[\\\", RowBox[List[\\\"\\\\[LeftSkeleton]\\\
+\", \\\"3\\\", \\\"\\\\[RightSkeleton]\\\"]], \\\"]\\\"]]]]], \
+RowBox[List[\\\"2\\\", \\\" \\\", \\\"\\\\[Pi]\\\"]]], \\\"]\\\"]]]]]], \
+RowBox[List[\\\"0\\\", \\\"<\\\", \
+InterpretationBox[ButtonBox[TooltipBox[GraphicsBox[List[List[GrayLevel[0], \
+RectangleBox[List[0, 0]]], List[GrayLevel[0], RectangleBox[List[1, -1]]], \
+List[RGBColor[0, 0, 1], RectangleBox[List[0, -1], List[2, 1]]]], \
+Rule[DefaultBaseStyle, \\\"ColorSwatchGraphics\\\"], Rule[AspectRatio, 1], \
+Rule[Frame, True], Rule[FrameStyle, RGBColor[0.`, 0.`, 0.6666666666666666`]], \
+Rule[FrameTicks, None], Rule[PlotRangePadding, None], Rule[ImageSize, \
+Dynamic[List[Automatic, Times[1.35`, \
+Times[CurrentValue[\\\"FontCapHeight\\\"], \
+Power[AbsoluteCurrentValue[Magnification], -1]]]]]]], StyleBox[RowBox[List[\\\
+\"RGBColor\\\", \\\"[\\\", RowBox[List[\\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\
+\\\", \\\"1\\\"]], \\\"]\\\"]], Rule[NumberMarks, False]]], Rule[Appearance, \
+None], Rule[BaseStyle, List[]], Rule[BaselinePosition, Baseline], \
+Rule[DefaultBaseStyle, List[]], RuleDelayed[ButtonFunction, \
+With[List[Set[Typeset`box$, EvaluationBox[]]], If[Not[AbsoluteCurrentValue[\\\
+\"Deployed\\\"]], CompoundExpression[SelectionMove[Typeset`box$, All, \
+Expression], Set[FrontEnd`Private`$ColorSelectorInitialAlpha, 1], \
+Set[FrontEnd`Private`$ColorSelectorInitialColor, RGBColor[0, 0, 1]], \
+Set[FrontEnd`Private`$ColorSelectorUseMakeBoxes, True], \
+MathLink`CallFrontEnd[FrontEnd`AttachCell[Typeset`box$, \
+FrontEndResource[\\\"RGBColorValueSelector\\\"], List[0, List[Left, Bottom]], \
+List[Left, Top], Rule[\\\"ClosingActions\\\", \
+List[\\\"SelectionDeparture\\\", \\\"ParentChanged\\\", \
+\\\"EvaluatorQuit\\\"]]]]]]]], Rule[BaseStyle, Inherited], Rule[Evaluator, \
+Automatic], Rule[Method, \\\"Preemptive\\\"]], RGBColor[0, 0, 1], \
+Rule[Editable, False], Rule[Selectable, False]], \\\"\\\\[LessEqual]\\\", \
+RowBox[List[\\\"4\\\", \\\" \\\", \\\"\\\\[Pi]\\\"]]]]], \
+\\\"ConditionalExpression\\\"]\\) in \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"\
+\[Phi]\\\", \\\",\\\", \\\"0\\\", \\\",\\\", RowBox[{\\\"\[Pi]\\\", \
+\\\"+\\\", RowBox[{RowBox[{\\\"ConeAngle\\\", \\\"[\\\", \
+RowBox[{\\\"0.96`\\\", \\\",\\\", \\\"0.45799999999999996`\\\", \\\",\\\", \
+InterpretationBox[ButtonBox[TooltipBox[GraphicsBox[List[List[GrayLevel[0], \
+RectangleBox[List[0, 0]]], List[GrayLevel[0], RectangleBox[List[1, -1]]], \
+List[RGBColor[0, 0, 1], RectangleBox[List[0, -1], List[2, 1]]]], \
+Rule[DefaultBaseStyle, \\\"ColorSwatchGraphics\\\"], Rule[AspectRatio, 1], \
+Rule[Frame, True], Rule[FrameStyle, RGBColor[0.`, 0.`, 0.6666666666666666`]], \
+Rule[FrameTicks, None], Rule[PlotRangePadding, None], Rule[ImageSize, \
+Dynamic[List[Automatic, Times[1.35`, \
+Times[CurrentValue[\\\"FontCapHeight\\\"], \
+Power[AbsoluteCurrentValue[Magnification], -1]]]]]]], StyleBox[RowBox[List[\\\
+\"RGBColor\\\", \\\"[\\\", RowBox[List[\\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\
+\\\", \\\"1\\\"]], \\\"]\\\"]], Rule[NumberMarks, False]]], Rule[Appearance, \
+None], Rule[BaseStyle, List[]], Rule[BaselinePosition, Baseline], \
+Rule[DefaultBaseStyle, List[]], RuleDelayed[ButtonFunction, \
+With[List[Set[Typeset`box$, EvaluationBox[]]], If[Not[AbsoluteCurrentValue[\\\
+\"Deployed\\\"]], CompoundExpression[SelectionMove[Typeset`box$, All, \
+Expression], Set[FrontEnd`Private`$ColorSelectorInitialAlpha, 1], \
+Set[FrontEnd`Private`$ColorSelectorInitialColor, RGBColor[0, 0, 1]], \
+Set[FrontEnd`Private`$ColorSelectorUseMakeBoxes, True], \
+MathLink`CallFrontEnd[FrontEnd`AttachCell[Typeset`box$, \
+FrontEndResource[\\\"RGBColorValueSelector\\\"], List[0, List[Left, Bottom]], \
+List[Left, Top], Rule[\\\"ClosingActions\\\", \
+List[\\\"SelectionDeparture\\\", \\\"ParentChanged\\\", \
+\\\"EvaluatorQuit\\\"]]]]]]]], Rule[BaseStyle, Inherited], Rule[Evaluator, \
+Automatic], Rule[Method, \\\"Preemptive\\\"]], RGBColor[0, 0, 1], \
+Rule[Editable, False], Rule[Selectable, False]]}], \\\"]\\\"}], \\\" \\\", \\\
+\"\[Pi]\\\"}]}]}], \\\"}\\\"}]\\) is not a machine-sized real number.\"", 2, 
+   192, 184, 34094668452967596491, "Local", 
+   "Visualization`Core`ParametricPlot3D"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.903396006446933*^9},
+ CellLabel->"",ExpressionUUID->"dc1b5d84-a5e4-459e-88ef-ff7f276df0e1"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show", "gcomb", 
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"ParametricPlot3D\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{RowBox[{RowBox[{\\\"Cos\\\", \\\"[\\\", \\\
+\"\[Phi]\\\", \\\"]\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \
+\\\"-\\\", \\\"z\\\"}], \\\")\\\"}], \\\" \\\", \\\"0.45799999999999996`\\\", \
+\\\" \\\", RowBox[{\\\"Radius\\\", \\\"[\\\", RowBox[{\\\"0.96`\\\", \
+\\\",\\\", \\\"0.45799999999999996`\\\", \\\",\\\", \
+InterpretationBox[ButtonBox[TooltipBox[GraphicsBox[List[List[GrayLevel[0], \
+RectangleBox[List[0, 0]]], List[GrayLevel[0], RectangleBox[List[1, -1]]], \
+List[RGBColor[0, 0, 1], RectangleBox[List[0, -1], List[2, 1]]]], \
+Rule[DefaultBaseStyle, \\\"ColorSwatchGraphics\\\"], Rule[AspectRatio, 1], \
+Rule[Frame, True], Rule[FrameStyle, RGBColor[0.`, 0.`, 0.6666666666666666`]], \
+Rule[FrameTicks, None], Rule[PlotRangePadding, None], Rule[ImageSize, \
+Dynamic[List[Automatic, Times[1.35`, \
+Times[CurrentValue[\\\"FontCapHeight\\\"], \
+Power[AbsoluteCurrentValue[Magnification], -1]]]]]]], StyleBox[RowBox[List[\\\
+\"RGBColor\\\", \\\"[\\\", RowBox[List[\\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\
+\\\", \\\"1\\\"]], \\\"]\\\"]], Rule[NumberMarks, False]]], Rule[Appearance, \
+None], Rule[BaseStyle, List[]], Rule[BaselinePosition, Baseline], \
+Rule[DefaultBaseStyle, List[]], RuleDelayed[ButtonFunction, \
+With[List[Set[Typeset`box$, EvaluationBox[]]], If[Not[AbsoluteCurrentValue[\\\
+\"Deployed\\\"]], CompoundExpression[SelectionMove[Typeset`box$, All, \
+Expression], Set[FrontEnd`Private`$ColorSelectorInitialAlpha, 1], \
+Set[FrontEnd`Private`$ColorSelectorInitialColor, RGBColor[0, 0, 1]], \
+Set[FrontEnd`Private`$ColorSelectorUseMakeBoxes, True], \
+MathLink`CallFrontEnd[FrontEnd`AttachCell[Typeset`box$, \
+FrontEndResource[\\\"RGBColorValueSelector\\\"], List[0, List[Left, Bottom]], \
+List[Left, Top], Rule[\\\"ClosingActions\\\", \
+List[\\\"SelectionDeparture\\\", \\\"ParentChanged\\\", \
+\\\"EvaluatorQuit\\\"]]]]]]]], Rule[BaseStyle, Inherited], Rule[Evaluator, \
+Automatic], Rule[Method, \\\"Preemptive\\\"]], RGBColor[0, 0, 1], \
+Rule[Editable, False], Rule[Selectable, False]]}], \\\"]\\\"}]}], \\\",\\\", \
+RowBox[{RowBox[{\\\"Sin\\\", \\\"[\\\", \\\"\[Phi]\\\", \\\"]\\\"}], \\\" \
+\\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \\\"z\\\"}], \
+\\\")\\\"}], \\\" \\\", \\\"0.45799999999999996`\\\", \\\" \\\", \
+RowBox[{\\\"Radius\\\", \\\"[\\\", RowBox[{\\\"0.96`\\\", \\\",\\\", \
+\\\"0.45799999999999996`\\\", \\\",\\\", \
+InterpretationBox[ButtonBox[TooltipBox[GraphicsBox[List[List[GrayLevel[0], \
+RectangleBox[List[0, 0]]], List[GrayLevel[0], RectangleBox[List[1, -1]]], \
+List[RGBColor[0, 0, 1], RectangleBox[List[0, -1], List[2, 1]]]], \
+Rule[DefaultBaseStyle, \\\"ColorSwatchGraphics\\\"], Rule[AspectRatio, 1], \
+Rule[Frame, True], Rule[FrameStyle, RGBColor[0.`, 0.`, 0.6666666666666666`]], \
+Rule[FrameTicks, None], Rule[PlotRangePadding, None], Rule[ImageSize, \
+Dynamic[List[Automatic, Times[1.35`, \
+Times[CurrentValue[\\\"FontCapHeight\\\"], \
+Power[AbsoluteCurrentValue[Magnification], -1]]]]]]], StyleBox[RowBox[List[\\\
+\"RGBColor\\\", \\\"[\\\", RowBox[List[\\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\
+\\\", \\\"1\\\"]], \\\"]\\\"]], Rule[NumberMarks, False]]], Rule[Appearance, \
+None], Rule[BaseStyle, List[]], Rule[BaselinePosition, Baseline], \
+Rule[DefaultBaseStyle, List[]], RuleDelayed[ButtonFunction, \
+With[List[Set[Typeset`box$, EvaluationBox[]]], If[Not[AbsoluteCurrentValue[\\\
+\"Deployed\\\"]], CompoundExpression[SelectionMove[Typeset`box$, All, \
+Expression], Set[FrontEnd`Private`$ColorSelectorInitialAlpha, 1], \
+Set[FrontEnd`Private`$ColorSelectorInitialColor, RGBColor[0, 0, 1]], \
+Set[FrontEnd`Private`$ColorSelectorUseMakeBoxes, True], \
+MathLink`CallFrontEnd[FrontEnd`AttachCell[Typeset`box$, \
+FrontEndResource[\\\"RGBColorValueSelector\\\"], List[0, List[Left, Bottom]], \
+List[Left, Top], Rule[\\\"ClosingActions\\\", \
+List[\\\"SelectionDeparture\\\", \\\"ParentChanged\\\", \
+\\\"EvaluatorQuit\\\"]]]]]]]], Rule[BaseStyle, Inherited], Rule[Evaluator, \
+Automatic], Rule[Method, \\\"Preemptive\\\"]], RGBColor[0, 0, 1], \
+Rule[Editable, False], Rule[Selectable, False]]}], \\\"]\\\"}]}], \\\",\\\", \
+RowBox[{\\\"0.96`\\\", \\\" \\\", \\\"z\\\"}]}], \\\"}\\\"}], \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"\[Phi]\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \
+RowBox[{\\\"\[Pi]\\\", \\\"+\\\", RowBox[{RowBox[{\\\"ConeAngle\\\", \
+\\\"[\\\", RowBox[{\\\"0.96`\\\", \\\",\\\", \\\"0.45799999999999996`\\\", \\\
+\",\\\", InterpretationBox[ButtonBox[TooltipBox[GraphicsBox[List[List[\
+GrayLevel[0], RectangleBox[List[0, 0]]], List[GrayLevel[0], \
+RectangleBox[List[1, -1]]], List[RGBColor[0, 0, 1], RectangleBox[List[0, -1], \
+List[2, 1]]]], Rule[DefaultBaseStyle, \\\"ColorSwatchGraphics\\\"], \
+Rule[AspectRatio, 1], Rule[Frame, True], Rule[FrameStyle, RGBColor[0.`, 0.`, \
+0.6666666666666666`]], Rule[FrameTicks, None], Rule[PlotRangePadding, None], \
+Rule[ImageSize, Dynamic[List[Automatic, Times[1.35`, \
+Times[CurrentValue[\\\"FontCapHeight\\\"], \
+Power[AbsoluteCurrentValue[Magnification], -1]]]]]]], StyleBox[RowBox[List[\\\
+\"RGBColor\\\", \\\"[\\\", RowBox[List[\\\"0\\\", \\\",\\\", \\\"0\\\", \\\",\
+\\\", \\\"1\\\"]], \\\"]\\\"]], Rule[NumberMarks, False]]], Rule[Appearance, \
+None], Rule[BaseStyle, List[]], Rule[BaselinePosition, Baseline], \
+Rule[DefaultBaseStyle, List[]], RuleDelayed[ButtonFunction, \
+With[List[Set[Typeset`box$, EvaluationBox[]]], If[Not[AbsoluteCurrentValue[\\\
+\"Deployed\\\"]], CompoundExpression[SelectionMove[Typeset`box$, All, \
+Expression], Set[FrontEnd`Private`$ColorSelectorInitialAlpha, 1], \
+Set[FrontEnd`Private`$ColorSelectorInitialColor, RGBColor[0, 0, 1]], \
+Set[FrontEnd`Private`$ColorSelectorUseMakeBoxes, True], \
+MathLink`CallFrontEnd[FrontEnd`AttachCell[Typeset`box$, \
+FrontEndResource[\\\"RGBColorValueSelector\\\"], List[0, List[Left, Bottom]], \
+List[Left, Top], Rule[\\\"ClosingActions\\\", \
+List[\\\"SelectionDeparture\\\", \\\"ParentChanged\\\", \
+\\\"EvaluatorQuit\\\"]]]]]]]], Rule[BaseStyle, Inherited], Rule[Evaluator, \
+Automatic], Rule[Method, \\\"Preemptive\\\"]], RGBColor[0, 0, 1], \
+Rule[Editable, False], Rule[Selectable, False]]}], \\\"]\\\"}], \\\" \\\", \\\
+\"\[Pi]\\\"}]}]}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"z\\\
+\", \\\",\\\", \\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", \
+RowBox[{\\\"PlotStyle\\\", \\\"\[Rule]\\\", \\\"Blue\\\"}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"3\\\", \\\"\[RightSkeleton]\\\"}], \\\",\
+\\\", RowBox[{\\\"BoundaryStyle\\\", \\\"\[Rule]\\\", \
+InterpretationBox[ButtonBox[TooltipBox[GraphicsBox[List[List[GrayLevel[0], \
+RectangleBox[List[0, 0]]], List[GrayLevel[0], RectangleBox[List[1, -1]]], \
+List[GrayLevel[0.1`], RectangleBox[List[0, -1], List[2, 1]]]], \
+Rule[DefaultBaseStyle, \\\"ColorSwatchGraphics\\\"], Rule[AspectRatio, 1], \
+Rule[Frame, True], Rule[FrameStyle, GrayLevel[0.06666666666666668`]], \
+Rule[FrameTicks, None], Rule[PlotRangePadding, None], Rule[ImageSize, \
+Dynamic[List[Automatic, Times[1.35`, \
+Times[CurrentValue[\\\"FontCapHeight\\\"], \
+Power[AbsoluteCurrentValue[Magnification], -1]]]]]]], StyleBox[RowBox[List[\\\
+\"GrayLevel\\\", \\\"[\\\", \\\"0.1`\\\", \\\"]\\\"]], Rule[NumberMarks, \
+False]]], Rule[Appearance, None], Rule[BaseStyle, List[]], \
+Rule[BaselinePosition, Baseline], Rule[DefaultBaseStyle, List[]], \
+RuleDelayed[ButtonFunction, With[List[Set[Typeset`box$, EvaluationBox[]]], \
+If[Not[AbsoluteCurrentValue[\\\"Deployed\\\"]], \
+CompoundExpression[SelectionMove[Typeset`box$, All, Expression], \
+Set[FrontEnd`Private`$ColorSelectorInitialAlpha, 1], \
+Set[FrontEnd`Private`$ColorSelectorInitialColor, GrayLevel[0.1`]], \
+Set[FrontEnd`Private`$ColorSelectorUseMakeBoxes, True], \
+MathLink`CallFrontEnd[FrontEnd`AttachCell[Typeset`box$, \
+FrontEndResource[\\\"GrayLevelColorValueSelector\\\"], List[0, List[Left, \
+Bottom]], List[Left, Top], Rule[\\\"ClosingActions\\\", \
+List[\\\"SelectionDeparture\\\", \\\"ParentChanged\\\", \
+\\\"EvaluatorQuit\\\"]]]]]]]], Rule[BaseStyle, Inherited], Rule[Evaluator, \
+Automatic], Rule[Method, \\\"Preemptive\\\"]], GrayLevel[0.1`], \
+Rule[Editable, False], Rule[Selectable, False]]}], \\\",\\\", \
+RowBox[{\\\"PerformanceGoal\\\", \\\"\[Rule]\\\", \\\"\\\\\\\"Quality\\\\\\\"\
+\\\"}], \\\",\\\", RowBox[{\\\"Axes\\\", \\\"\[Rule]\\\", \\\"False\\\"}]}], \
+\\\"]\\\"}], \\\",\\\", Graphics3DBox[List[RGBColor[0, 1, 0], \
+Arrowheads[Medium], List[List[Arrow3DBox[List[List[Skeleton[3]], \
+List[Skeleton[3]]]], Text3DBox[FormBox[\\\"\\\\\\\"X\\\\\\\"\\\", \
+TraditionalForm], List[1.5`, 0.`, 0.`]]], \
+List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"Y\\\\\\\"\\\", TraditionalForm], List[0.`, \
+1.5`, 0.`]]], List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"Z\\\\\\\"\\\", TraditionalForm], List[0.`, 0.`, \
+1.5`]]]]]]}], \\\"]\\\"}]\\).\"", 2, 192, 185, 34094668452967596491, "Local"},
+  
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.903396006469502*^9},
+ CellLabel->"",ExpressionUUID->"9ce27e19-dba6-47b4-b62e-6b76c8c9ec9b"]
+}, Open  ]],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{
+  3.903383490836104*^9},ExpressionUUID->"48e588e4-36a5-46ac-a43d-\
+79425fd317f9"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Radius", "[", 
+    RowBox[{"h_", ",", "r_", ",", "\[Theta]_"}], "]"}], ":=", 
+   RowBox[{"x", "/.", " ", 
+    RowBox[{"First", "@", 
+     RowBox[{"Solve", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"2", " ", "\[Pi]", " ", "r", " ", 
+           RowBox[{"Sqrt", "[", 
+            RowBox[{
+             RowBox[{"r", "^", "2"}], "-", 
+             RowBox[{"h", "^", "2"}]}], "]"}], " ", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"1", "+", "h"}], ")"}], "/", "2"}]}], "\[Equal]", 
+          RowBox[{"\[Theta]", " ", "r"}]}], ",", 
+         RowBox[{"h", ">", "0"}], ",", 
+         RowBox[{"r", ">", "0"}], ",", 
+         RowBox[{"\[Theta]", ">", "0"}]}], "}"}], ",", "x", ",", "Reals"}], 
+      "]"}]}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ConeAngle", "[", 
+    RowBox[{"h_", ",", "r_", ",", "\[Theta]_"}], "]"}], ":=", 
+   RowBox[{"\[Beta]", "/.", " ", 
+    RowBox[{"First", "@", 
+     RowBox[{"Solve", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"\[Beta]", "\[Equal]", 
+          RowBox[{"ArcSin", "[", 
+           RowBox[{
+            RowBox[{"Sqrt", "[", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"4", " ", "\[Pi]"}], "-", "\[Theta]"}], ")"}], " ", 
+              "\[Theta]"}], "]"}], "/", 
+            RowBox[{"(", 
+             RowBox[{"2", " ", "\[Pi]"}], ")"}]}], "]"}]}], ",", 
+         RowBox[{"h", ">", "0"}], ",", 
+         RowBox[{"r", ">", "0"}], ",", 
+         RowBox[{"\[Theta]", ">", "0"}]}], "}"}], ",", "\[Beta]", ",", 
+       "Reals"}], "]"}]}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"AnimatedCone", "[", 
+    RowBox[{"h_", ",", "r_", ",", "\[Theta]_"}], "]"}], ":=", 
+   RowBox[{"ParametricPlot3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Phi]", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", "z"}], ")"}], " ", "r", " ", 
+        RowBox[{"Radius", "[", 
+         RowBox[{"h", ",", "r", ",", "\[Theta]"}], "]"}]}], ",", 
+       RowBox[{
+        RowBox[{"Sin", "[", "\[Phi]", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", "z"}], ")"}], " ", "r", " ", 
+        RowBox[{"Radius", "[", 
+         RowBox[{"h", ",", "r", ",", "\[Theta]"}], "]"}]}], ",", 
+       RowBox[{"h", " ", "z"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Phi]", ",", "0", ",", 
+       RowBox[{"Pi", "+", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"ConeAngle", "[", 
+           RowBox[{"h", ",", "r", ",", "\[Theta]"}], "]"}], ")"}], "Pi"}]}]}],
+       "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z", ",", "0", ",", "1"}], "}"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", "Blue"}], ",", 
+     RowBox[{"MeshFunctions", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"#2", "&"}], "}"}]}], ",", 
+     RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"1.5", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}]}], ",", 
+     RowBox[{"BoundaryStyle", "\[Rule]", 
+      RowBox[{"GrayLevel", "[", ".1", "]"}]}], ",", 
+     RowBox[{"PerformanceGoal", "\[Rule]", "\"\<Quality\>\""}], ",", 
+     RowBox[{"Axes", "\[Rule]", "False"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"axes", "=", 
+   RowBox[{"Graphics3D", "[", 
+    RowBox[{"{", 
+     RowBox[{"Green", ",", 
+      RowBox[{"Arrowheads", "[", "Medium", "]"}], ",", 
+      RowBox[{"MapThread", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Arrow", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+              RowBox[{"1.4", " ", "#2"}]}], "}"}], "]"}], ",", 
+           RowBox[{"Text", "[", 
+            RowBox[{"#", ",", 
+             RowBox[{"1.5", " ", "#2"}]}], "]"}]}], "}"}], "&"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"\"\<X\>\"", ",", "\"\<Y\>\"", ",", "\"\<Z\>\""}], "}"}], 
+          ",", 
+          RowBox[{"IdentityMatrix", "[", "3", "]"}]}], "}"}]}], "]"}]}], 
+     "}"}], "]"}]}], ";"}], "\n", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"AnimatedCone", "[", 
+      RowBox[{"h", ",", "r", ",", "\[Theta]"}], "]"}], ",", "axes"}], "]"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"h", ",", "0", ",", "\"\<height\>\""}], "}"}], ",", "0", ",", 
+     "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"r", ",", "1", ",", "\"\<initial radius\>\""}], "}"}], ",", 
+     "0.1", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[Theta]", ",", "0", ",", 
+       "\"\<\[Theta] (sector of the circle removed to form the base of the \
+cone)\>\""}], "}"}], ",", "0", ",", 
+     RowBox[{"2", " ", "\[Pi]"}]}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.903396004774021*^9, 3.903396004809301*^9}},
+ CellLabel->
+  "In[187]:=",ExpressionUUID->"7bae3f31-1743-49cc-9346-4e4001e3cc9b"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`h$$ = 0.518, $CellContext`r$$ = 
+    1.3780000000000001`, $CellContext`\[Theta]$$ = 3.141592653589793, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`h$$], 0, "height"}, 0, 1}, {{
+       Hold[$CellContext`r$$], 1, "initial radius"}, 0.1, 2}, {{
+       Hold[$CellContext`\[Theta]$$], 0, 
+       "\[Theta] (sector of the circle removed to form the base of the \
+cone)"}, 0, 2 Pi}}, Typeset`size$$ = {360., {179., 184.}}, Typeset`update$$ = 
+    0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`h$$ = 0, $CellContext`r$$ = 
+        1, $CellContext`\[Theta]$$ = 0}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[
+        $CellContext`AnimatedCone[$CellContext`h$$, $CellContext`r$$, \
+$CellContext`\[Theta]$$], $CellContext`axes], 
+      "Specifications" :> {{{$CellContext`h$$, 0, "height"}, 0, 
+         1}, {{$CellContext`r$$, 1, "initial radius"}, 0.1, 
+         2}, {{$CellContext`\[Theta]$$, 0, 
+          "\[Theta] (sector of the circle removed to form the base of the \
+cone)"}, 0, 2 Pi}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{511., {252., 258.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.903396005285585*^9},
+ CellLabel->
+  "Out[191]=",ExpressionUUID->"ec7074cc-eb58-442b-a6d9-2542d6641543"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "First", "nofirst", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", \\\"}\\\"}]\\) has zero length and no first \
+element.\"", 2, 192, 186, 34094668452967596491, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9033960091130657`*^9},
+ CellLabel->"",ExpressionUUID->"bc567ccc-3a1c-4b5e-bdfc-e3d8a732142d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceAll", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"First\\\", \\\"[\\\", \
+RowBox[{\\\"{\\\", \\\"}\\\"}], \\\"]\\\"}], \\\"}\\\"}]\\) is neither a list \
+of replacement rules nor a valid dispatch table, and so cannot be used for \
+replacing.\"", 2, 192, 187, 34094668452967596491, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.903396009134975*^9},
+ CellLabel->"",ExpressionUUID->"abd6c557-11c1-489a-9817-01e5e90af9e3"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Visualization`Core`ParametricPlot3D", "plln", 
+   "\"Limiting value \\!\\(\\*RowBox[{\\\"\[Pi]\\\", \\\"+\\\", RowBox[{\\\"\
+\[Pi]\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"\[Beta]\\\", \\\"/.\\\", \
+\\\"\[VeryThinSpace]\\\", RowBox[{\\\"First\\\", \\\"[\\\", \
+RowBox[{\\\"{\\\", \\\"}\\\"}], \\\"]\\\"}]}], \\\")\\\"}]}]}]\\) in \
+\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"\[Phi]\\\", \\\",\\\", \\\"0\\\", \
+\\\",\\\", RowBox[{\\\"\[Pi]\\\", \\\"+\\\", \
+RowBox[{RowBox[{\\\"ConeAngle\\\", \\\"[\\\", RowBox[{\\\"0\\\", \\\",\\\", \
+\\\"1\\\", \\\",\\\", \\\"0\\\"}], \\\"]\\\"}], \\\" \\\", \
+\\\"\[Pi]\\\"}]}]}], \\\"}\\\"}]\\) is not a machine-sized real number.\"", 2,
+    192, 188, 34094668452967596491, "Local", 
+   "Visualization`Core`ParametricPlot3D"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.9033960091820927`*^9},
+ CellLabel->"",ExpressionUUID->"cde826fa-51b1-4506-b2fd-cec372494e13"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show", "gcomb", 
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"ParametricPlot3D\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{RowBox[{RowBox[{\\\"Cos\\\", \\\"[\\\", \\\
+\"\[Phi]\\\", \\\"]\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \
+\\\"-\\\", \\\"z\\\"}], \\\")\\\"}], \\\" \\\", RowBox[{\\\"Radius\\\", \\\"[\
+\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"0\\\"}], \
+\\\"]\\\"}]}], \\\",\\\", RowBox[{RowBox[{\\\"Sin\\\", \\\"[\\\", \
+\\\"\[Phi]\\\", \\\"]\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \
+\\\"-\\\", \\\"z\\\"}], \\\")\\\"}], \\\" \\\", RowBox[{\\\"Radius\\\", \\\"[\
+\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"0\\\"}], \
+\\\"]\\\"}]}], \\\",\\\", RowBox[{\\\"0\\\", \\\" \\\", \\\"z\\\"}]}], \
+\\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[Phi]\\\", \\\",\\\", \
+\\\"0\\\", \\\",\\\", RowBox[{\\\"\[Pi]\\\", \\\"+\\\", \
+RowBox[{RowBox[{\\\"ConeAngle\\\", \\\"[\\\", RowBox[{\\\"0\\\", \\\",\\\", \
+\\\"1\\\", \\\",\\\", \\\"0\\\"}], \\\"]\\\"}], \\\" \\\", \
+\\\"\[Pi]\\\"}]}]}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"z\
+\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", \
+RowBox[{\\\"PlotStyle\\\", \\\"\[Rule]\\\", \\\"Blue\\\"}], \\\",\\\", \
+RowBox[{\\\"MeshFunctions\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", RowBox[{\\\
+\"#2\\\", \\\"&\\\"}], \\\"}\\\"}]}], \\\",\\\", RowBox[{\\\"Boxed\\\", \\\"\
+\[Rule]\\\", \\\"False\\\"}], \\\",\\\", RowBox[{\\\"PlotRange\\\", \\\"\
+\[Rule]\\\", RowBox[{\\\"1.5`\\\", \\\" \\\", RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"-\\\", \\\"2\\\"}], \\\",\\\", \
+\\\"2\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"-\
+\\\", \\\"2\\\"}], \\\",\\\", \\\"2\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\
+\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}]}]}], \\\",\\\", RowBox[{\\\"BoundaryStyle\\\", \\\"\[Rule]\\\", \
+InterpretationBox[ButtonBox[TooltipBox[GraphicsBox[List[List[GrayLevel[0], \
+RectangleBox[List[0, 0]]], List[GrayLevel[0], RectangleBox[List[1, -1]]], \
+List[GrayLevel[0.1`], RectangleBox[List[0, -1], List[2, 1]]]], \
+Rule[DefaultBaseStyle, \\\"ColorSwatchGraphics\\\"], Rule[AspectRatio, 1], \
+Rule[Frame, True], Rule[FrameStyle, GrayLevel[0.06666666666666668`]], \
+Rule[FrameTicks, None], Rule[PlotRangePadding, None], Rule[ImageSize, \
+Dynamic[List[Automatic, Times[1.35`, \
+Times[CurrentValue[\\\"FontCapHeight\\\"], \
+Power[AbsoluteCurrentValue[Magnification], -1]]]]]]], StyleBox[RowBox[List[\\\
+\"GrayLevel\\\", \\\"[\\\", \\\"0.1`\\\", \\\"]\\\"]], Rule[NumberMarks, \
+False]]], Rule[Appearance, None], Rule[BaseStyle, List[]], \
+Rule[BaselinePosition, Baseline], Rule[DefaultBaseStyle, List[]], \
+RuleDelayed[ButtonFunction, With[List[Set[Typeset`box$, EvaluationBox[]]], \
+If[Not[AbsoluteCurrentValue[\\\"Deployed\\\"]], \
+CompoundExpression[SelectionMove[Typeset`box$, All, Expression], \
+Set[FrontEnd`Private`$ColorSelectorInitialAlpha, 1], \
+Set[FrontEnd`Private`$ColorSelectorInitialColor, GrayLevel[0.1`]], \
+Set[FrontEnd`Private`$ColorSelectorUseMakeBoxes, True], \
+MathLink`CallFrontEnd[FrontEnd`AttachCell[Typeset`box$, \
+FrontEndResource[\\\"GrayLevelColorValueSelector\\\"], List[0, List[Left, \
+Bottom]], List[Left, Top], Rule[\\\"ClosingActions\\\", \
+List[\\\"SelectionDeparture\\\", \\\"ParentChanged\\\", \
+\\\"EvaluatorQuit\\\"]]]]]]]], Rule[BaseStyle, Inherited], Rule[Evaluator, \
+Automatic], Rule[Method, \\\"Preemptive\\\"]], GrayLevel[0.1`], \
+Rule[Editable, False], Rule[Selectable, False]]}], \\\",\\\", \
+RowBox[{\\\"PerformanceGoal\\\", \\\"\[Rule]\\\", \\\"\\\\\\\"Quality\\\\\\\"\
+\\\"}], \\\",\\\", RowBox[{\\\"Axes\\\", \\\"\[Rule]\\\", \\\"False\\\"}]}], \
+\\\"]\\\"}], \\\",\\\", Graphics3DBox[List[RGBColor[0, 1, 0], \
+Arrowheads[Medium], List[List[Arrow3DBox[List[List[Skeleton[3]], \
+List[Skeleton[3]]]], Text3DBox[FormBox[\\\"\\\\\\\"X\\\\\\\"\\\", \
+TraditionalForm], List[1.5`, 0.`, 0.`]]], \
+List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"Y\\\\\\\"\\\", TraditionalForm], List[0.`, \
+1.5`, 0.`]]], List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"Z\\\\\\\"\\\", TraditionalForm], List[0.`, 0.`, \
+1.5`]]]]]]}], \\\"]\\\"}]\\).\"", 2, 192, 189, 34094668452967596491, "Local"},
+  
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.903396009237563*^9},
+ CellLabel->"",ExpressionUUID->"e66a5ed3-f69d-4b44-9846-9e32512d8dae"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "First", "nofirst", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", \\\"}\\\"}]\\) has zero length and no first \
+element.\"", 2, 192, 190, 34094668452967596491, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.903396009331522*^9},
+ CellLabel->"",ExpressionUUID->"59669a8a-6d50-4caa-b4a2-d754818b15c1"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceAll", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"First\\\", \\\"[\\\", \
+RowBox[{\\\"{\\\", \\\"}\\\"}], \\\"]\\\"}], \\\"}\\\"}]\\) is neither a list \
+of replacement rules nor a valid dispatch table, and so cannot be used for \
+replacing.\"", 2, 192, 191, 34094668452967596491, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.903396009389306*^9},
+ CellLabel->"",ExpressionUUID->"fd6726d8-32bf-48bf-9b1c-4115ede13e3f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Visualization`Core`ParametricPlot3D", "plln", 
+   "\"Limiting value \\!\\(\\*RowBox[{\\\"\[Pi]\\\", \\\"+\\\", RowBox[{\\\"\
+\[Pi]\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"\[Beta]\\\", \\\"/.\\\", \
+\\\"\[VeryThinSpace]\\\", RowBox[{\\\"First\\\", \\\"[\\\", \
+RowBox[{\\\"{\\\", \\\"}\\\"}], \\\"]\\\"}]}], \\\")\\\"}]}]}]\\) in \
+\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"\[Phi]\\\", \\\",\\\", \\\"0\\\", \
+\\\",\\\", RowBox[{\\\"\[Pi]\\\", \\\"+\\\", \
+RowBox[{RowBox[{\\\"ConeAngle\\\", \\\"[\\\", RowBox[{\\\"0\\\", \\\",\\\", \
+\\\"1\\\", \\\",\\\", \\\"0\\\"}], \\\"]\\\"}], \\\" \\\", \
+\\\"\[Pi]\\\"}]}]}], \\\"}\\\"}]\\) is not a machine-sized real number.\"", 2,
+    192, 192, 34094668452967596491, "Local", 
+   "Visualization`Core`ParametricPlot3D"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.903396009446712*^9},
+ CellLabel->"",ExpressionUUID->"539565f8-ac4d-45df-88be-a3a1561d764b"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show", "gcomb", 
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"ParametricPlot3D\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{RowBox[{RowBox[{\\\"Cos\\\", \\\"[\\\", \\\
+\"\[Phi]\\\", \\\"]\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \
+\\\"-\\\", \\\"z\\\"}], \\\")\\\"}], \\\" \\\", RowBox[{\\\"Radius\\\", \\\"[\
+\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"0\\\"}], \
+\\\"]\\\"}]}], \\\",\\\", RowBox[{RowBox[{\\\"Sin\\\", \\\"[\\\", \
+\\\"\[Phi]\\\", \\\"]\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \
+\\\"-\\\", \\\"z\\\"}], \\\")\\\"}], \\\" \\\", RowBox[{\\\"Radius\\\", \\\"[\
+\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"0\\\"}], \
+\\\"]\\\"}]}], \\\",\\\", RowBox[{\\\"0\\\", \\\" \\\", \\\"z\\\"}]}], \
+\\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[Phi]\\\", \\\",\\\", \
+\\\"0\\\", \\\",\\\", RowBox[{\\\"\[Pi]\\\", \\\"+\\\", \
+RowBox[{RowBox[{\\\"ConeAngle\\\", \\\"[\\\", RowBox[{\\\"0\\\", \\\",\\\", \
+\\\"1\\\", \\\",\\\", \\\"0\\\"}], \\\"]\\\"}], \\\" \\\", \
+\\\"\[Pi]\\\"}]}]}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"z\
+\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", \
+RowBox[{\\\"PlotStyle\\\", \\\"\[Rule]\\\", \\\"Blue\\\"}], \\\",\\\", \
+RowBox[{\\\"MeshFunctions\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", RowBox[{\\\
+\"#2\\\", \\\"&\\\"}], \\\"}\\\"}]}], \\\",\\\", RowBox[{\\\"Boxed\\\", \\\"\
+\[Rule]\\\", \\\"False\\\"}], \\\",\\\", RowBox[{\\\"PlotRange\\\", \\\"\
+\[Rule]\\\", RowBox[{\\\"1.5`\\\", \\\" \\\", RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"-\\\", \\\"2\\\"}], \\\",\\\", \
+\\\"2\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"-\
+\\\", \\\"2\\\"}], \\\",\\\", \\\"2\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\
+\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}]}]}], \\\",\\\", RowBox[{\\\"BoundaryStyle\\\", \\\"\[Rule]\\\", \
+InterpretationBox[ButtonBox[TooltipBox[GraphicsBox[List[List[GrayLevel[0], \
+RectangleBox[List[0, 0]]], List[GrayLevel[0], RectangleBox[List[1, -1]]], \
+List[GrayLevel[0.1`], RectangleBox[List[0, -1], List[2, 1]]]], \
+Rule[DefaultBaseStyle, \\\"ColorSwatchGraphics\\\"], Rule[AspectRatio, 1], \
+Rule[Frame, True], Rule[FrameStyle, GrayLevel[0.06666666666666668`]], \
+Rule[FrameTicks, None], Rule[PlotRangePadding, None], Rule[ImageSize, \
+Dynamic[List[Automatic, Times[1.35`, \
+Times[CurrentValue[\\\"FontCapHeight\\\"], \
+Power[AbsoluteCurrentValue[Magnification], -1]]]]]]], StyleBox[RowBox[List[\\\
+\"GrayLevel\\\", \\\"[\\\", \\\"0.1`\\\", \\\"]\\\"]], Rule[NumberMarks, \
+False]]], Rule[Appearance, None], Rule[BaseStyle, List[]], \
+Rule[BaselinePosition, Baseline], Rule[DefaultBaseStyle, List[]], \
+RuleDelayed[ButtonFunction, With[List[Set[Typeset`box$, EvaluationBox[]]], \
+If[Not[AbsoluteCurrentValue[\\\"Deployed\\\"]], \
+CompoundExpression[SelectionMove[Typeset`box$, All, Expression], \
+Set[FrontEnd`Private`$ColorSelectorInitialAlpha, 1], \
+Set[FrontEnd`Private`$ColorSelectorInitialColor, GrayLevel[0.1`]], \
+Set[FrontEnd`Private`$ColorSelectorUseMakeBoxes, True], \
+MathLink`CallFrontEnd[FrontEnd`AttachCell[Typeset`box$, \
+FrontEndResource[\\\"GrayLevelColorValueSelector\\\"], List[0, List[Left, \
+Bottom]], List[Left, Top], Rule[\\\"ClosingActions\\\", \
+List[\\\"SelectionDeparture\\\", \\\"ParentChanged\\\", \
+\\\"EvaluatorQuit\\\"]]]]]]]], Rule[BaseStyle, Inherited], Rule[Evaluator, \
+Automatic], Rule[Method, \\\"Preemptive\\\"]], GrayLevel[0.1`], \
+Rule[Editable, False], Rule[Selectable, False]]}], \\\",\\\", \
+RowBox[{\\\"PerformanceGoal\\\", \\\"\[Rule]\\\", \\\"\\\\\\\"Quality\\\\\\\"\
+\\\"}], \\\",\\\", RowBox[{\\\"Axes\\\", \\\"\[Rule]\\\", \\\"False\\\"}]}], \
+\\\"]\\\"}], \\\",\\\", Graphics3DBox[List[RGBColor[0, 1, 0], \
+Arrowheads[Medium], List[List[Arrow3DBox[List[List[Skeleton[3]], \
+List[Skeleton[3]]]], Text3DBox[FormBox[\\\"\\\\\\\"X\\\\\\\"\\\", \
+TraditionalForm], List[1.5`, 0.`, 0.`]]], \
+List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"Y\\\\\\\"\\\", TraditionalForm], List[0.`, \
+1.5`, 0.`]]], List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"Z\\\\\\\"\\\", TraditionalForm], List[0.`, 0.`, \
+1.5`]]]]]]}], \\\"]\\\"}]\\).\"", 2, 192, 193, 34094668452967596491, "Local"},
+  
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.903396009499979*^9},
+ CellLabel->"",ExpressionUUID->"c8bc9e15-b980-45d2-9dd9-1d77c80a18da"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "First", "nofirst", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", \\\"}\\\"}]\\) has zero length and no first \
+element.\"", 2, 192, 194, 34094668452967596491, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9033960096796417`*^9},
+ CellLabel->"",ExpressionUUID->"f05070bf-5ea1-46b7-a532-511c238ab011"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceAll", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"First\\\", \\\"[\\\", \
+RowBox[{\\\"{\\\", \\\"}\\\"}], \\\"]\\\"}], \\\"}\\\"}]\\) is neither a list \
+of replacement rules nor a valid dispatch table, and so cannot be used for \
+replacing.\"", 2, 192, 195, 34094668452967596491, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.903396009684106*^9},
+ CellLabel->"",ExpressionUUID->"d8dd97b0-e4d7-4b86-8100-1fd9a48065a9"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Visualization`Core`ParametricPlot3D", "plln", 
+   "\"Limiting value \\!\\(\\*RowBox[{\\\"\[Pi]\\\", \\\"+\\\", RowBox[{\\\"\
+\[Pi]\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"\[Beta]\\\", \\\"/.\\\", \
+\\\"\[VeryThinSpace]\\\", RowBox[{\\\"First\\\", \\\"[\\\", \
+RowBox[{\\\"{\\\", \\\"}\\\"}], \\\"]\\\"}]}], \\\")\\\"}]}]}]\\) in \
+\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"\[Phi]\\\", \\\",\\\", \\\"0\\\", \
+\\\",\\\", RowBox[{\\\"\[Pi]\\\", \\\"+\\\", \
+RowBox[{RowBox[{\\\"ConeAngle\\\", \\\"[\\\", RowBox[{\\\"0\\\", \\\",\\\", \
+\\\"0.328`\\\", \\\",\\\", \\\"0\\\"}], \\\"]\\\"}], \\\" \\\", \
+\\\"\[Pi]\\\"}]}]}], \\\"}\\\"}]\\) is not a machine-sized real number.\"", 2,
+    192, 196, 34094668452967596491, "Local", 
+   "Visualization`Core`ParametricPlot3D"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.903396009687477*^9},
+ CellLabel->"",ExpressionUUID->"ce26d1d2-8ad0-4db1-955a-6b5ac1912478"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show", "gcomb", 
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"ParametricPlot3D\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{RowBox[{RowBox[{\\\"Cos\\\", \\\"[\\\", \\\
+\"\[Phi]\\\", \\\"]\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \
+\\\"-\\\", \\\"z\\\"}], \\\")\\\"}], \\\" \\\", \\\"0.328`\\\", \\\" \\\", \
+RowBox[{\\\"Radius\\\", \\\"[\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"0.328`\\\
+\", \\\",\\\", \\\"0\\\"}], \\\"]\\\"}]}], \\\",\\\", RowBox[{RowBox[{\\\"Sin\
+\\\", \\\"[\\\", \\\"\[Phi]\\\", \\\"]\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"1\\\", \\\"-\\\", \\\"z\\\"}], \\\")\\\"}], \\\" \\\", \\\"0.328`\
+\\\", \\\" \\\", RowBox[{\\\"Radius\\\", \\\"[\\\", RowBox[{\\\"0\\\", \
+\\\",\\\", \\\"0.328`\\\", \\\",\\\", \\\"0\\\"}], \\\"]\\\"}]}], \\\",\\\", \
+RowBox[{\\\"0\\\", \\\" \\\", \\\"z\\\"}]}], \\\"}\\\"}], \\\",\\\", RowBox[{\
+\\\"{\\\", RowBox[{\\\"\[Phi]\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \
+RowBox[{\\\"\[Pi]\\\", \\\"+\\\", RowBox[{RowBox[{\\\"ConeAngle\\\", \
+\\\"[\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"0.328`\\\", \\\",\\\", \
+\\\"0\\\"}], \\\"]\\\"}], \\\" \\\", \\\"\[Pi]\\\"}]}]}], \\\"}\\\"}], \
+\\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"z\\\", \\\",\\\", \\\"0\\\", \
+\\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"PlotStyle\\\", \\\
+\"\[Rule]\\\", \\\"Blue\\\"}], \\\",\\\", RowBox[{\\\"MeshFunctions\\\", \\\"\
+\[Rule]\\\", RowBox[{\\\"{\\\", RowBox[{\\\"#2\\\", \\\"&\\\"}], \
+\\\"}\\\"}]}], \\\",\\\", RowBox[{\\\"Boxed\\\", \\\"\[Rule]\\\", \\\"False\\\
+\"}], \\\",\\\", RowBox[{\\\"PlotRange\\\", \\\"\[Rule]\\\", RowBox[{\\\"1.5`\
+\\\", \\\" \\\", RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"2\\\"}], \\\",\\\", \\\"2\\\"}], \\\"}\\\"}], \
+\\\",\\\", RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"-\\\", \\\"2\\\"}], \\\",\\\
+\", \\\"2\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}]}], \\\"}\\\"}]}]}], \\\
+\",\\\", RowBox[{\\\"BoundaryStyle\\\", \\\"\[Rule]\\\", \
+InterpretationBox[ButtonBox[TooltipBox[GraphicsBox[List[List[GrayLevel[0], \
+RectangleBox[List[0, 0]]], List[GrayLevel[0], RectangleBox[List[1, -1]]], \
+List[GrayLevel[0.1`], RectangleBox[List[0, -1], List[2, 1]]]], \
+Rule[DefaultBaseStyle, \\\"ColorSwatchGraphics\\\"], Rule[AspectRatio, 1], \
+Rule[Frame, True], Rule[FrameStyle, GrayLevel[0.06666666666666668`]], \
+Rule[FrameTicks, None], Rule[PlotRangePadding, None], Rule[ImageSize, \
+Dynamic[List[Automatic, Times[1.35`, \
+Times[CurrentValue[\\\"FontCapHeight\\\"], \
+Power[AbsoluteCurrentValue[Magnification], -1]]]]]]], StyleBox[RowBox[List[\\\
+\"GrayLevel\\\", \\\"[\\\", \\\"0.1`\\\", \\\"]\\\"]], Rule[NumberMarks, \
+False]]], Rule[Appearance, None], Rule[BaseStyle, List[]], \
+Rule[BaselinePosition, Baseline], Rule[DefaultBaseStyle, List[]], \
+RuleDelayed[ButtonFunction, With[List[Set[Typeset`box$, EvaluationBox[]]], \
+If[Not[AbsoluteCurrentValue[\\\"Deployed\\\"]], \
+CompoundExpression[SelectionMove[Typeset`box$, All, Expression], \
+Set[FrontEnd`Private`$ColorSelectorInitialAlpha, 1], \
+Set[FrontEnd`Private`$ColorSelectorInitialColor, GrayLevel[0.1`]], \
+Set[FrontEnd`Private`$ColorSelectorUseMakeBoxes, True], \
+MathLink`CallFrontEnd[FrontEnd`AttachCell[Typeset`box$, \
+FrontEndResource[\\\"GrayLevelColorValueSelector\\\"], List[0, List[Left, \
+Bottom]], List[Left, Top], Rule[\\\"ClosingActions\\\", \
+List[\\\"SelectionDeparture\\\", \\\"ParentChanged\\\", \
+\\\"EvaluatorQuit\\\"]]]]]]]], Rule[BaseStyle, Inherited], Rule[Evaluator, \
+Automatic], Rule[Method, \\\"Preemptive\\\"]], GrayLevel[0.1`], \
+Rule[Editable, False], Rule[Selectable, False]]}], \\\",\\\", \
+RowBox[{\\\"PerformanceGoal\\\", \\\"\[Rule]\\\", \\\"\\\\\\\"Quality\\\\\\\"\
+\\\"}], \\\",\\\", RowBox[{\\\"Axes\\\", \\\"\[Rule]\\\", \\\"False\\\"}]}], \
+\\\"]\\\"}], \\\",\\\", Graphics3DBox[List[RGBColor[0, 1, 0], \
+Arrowheads[Medium], List[List[Arrow3DBox[List[List[Skeleton[3]], \
+List[Skeleton[3]]]], Text3DBox[FormBox[\\\"\\\\\\\"X\\\\\\\"\\\", \
+TraditionalForm], List[1.5`, 0.`, 0.`]]], \
+List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"Y\\\\\\\"\\\", TraditionalForm], List[0.`, \
+1.5`, 0.`]]], List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"Z\\\\\\\"\\\", TraditionalForm], List[0.`, 0.`, \
+1.5`]]]]]]}], \\\"]\\\"}]\\).\"", 2, 192, 197, 34094668452967596491, "Local"},
+  
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9033960096918077`*^9},
+ CellLabel->"",ExpressionUUID->"37669d4d-7f1c-4c1e-9c83-561287a7330b"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "First", "nofirst", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", \\\"}\\\"}]\\) has zero length and no first \
+element.\"", 2, 192, 198, 34094668452967596491, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.903396009767161*^9},
+ CellLabel->"",ExpressionUUID->"0cdfc560-d5b8-4f56-9d49-66d7d95feb0b"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceAll", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"First\\\", \\\"[\\\", \
+RowBox[{\\\"{\\\", \\\"}\\\"}], \\\"]\\\"}], \\\"}\\\"}]\\) is neither a list \
+of replacement rules nor a valid dispatch table, and so cannot be used for \
+replacing.\"", 2, 192, 199, 34094668452967596491, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.903396009786332*^9},
+ CellLabel->"",ExpressionUUID->"967f43ed-0aac-4ec6-b764-19bc65e4edf1"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Visualization`Core`ParametricPlot3D", "plln", 
+   "\"Limiting value \\!\\(\\*RowBox[{\\\"\[Pi]\\\", \\\"+\\\", RowBox[{\\\"\
+\[Pi]\\\", \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"\[Beta]\\\", \\\"/.\\\", \
+\\\"\[VeryThinSpace]\\\", RowBox[{\\\"First\\\", \\\"[\\\", \
+RowBox[{\\\"{\\\", \\\"}\\\"}], \\\"]\\\"}]}], \\\")\\\"}]}]}]\\) in \
+\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"\[Phi]\\\", \\\",\\\", \\\"0\\\", \
+\\\",\\\", RowBox[{\\\"\[Pi]\\\", \\\"+\\\", \
+RowBox[{RowBox[{\\\"ConeAngle\\\", \\\"[\\\", RowBox[{\\\"0\\\", \\\",\\\", \
+\\\"0.328`\\\", \\\",\\\", \\\"0\\\"}], \\\"]\\\"}], \\\" \\\", \
+\\\"\[Pi]\\\"}]}]}], \\\"}\\\"}]\\) is not a machine-sized real number.\"", 2,
+    192, 200, 34094668452967596491, "Local", 
+   "Visualization`Core`ParametricPlot3D"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.9033960098353357`*^9},
+ CellLabel->"",ExpressionUUID->"e30cff9d-80c5-4e50-bd60-30311ff69385"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show", "gcomb", 
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"ParametricPlot3D\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{RowBox[{RowBox[{\\\"Cos\\\", \\\"[\\\", \\\
+\"\[Phi]\\\", \\\"]\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \
+\\\"-\\\", \\\"z\\\"}], \\\")\\\"}], \\\" \\\", \\\"0.328`\\\", \\\" \\\", \
+RowBox[{\\\"Radius\\\", \\\"[\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"0.328`\\\
+\", \\\",\\\", \\\"0\\\"}], \\\"]\\\"}]}], \\\",\\\", RowBox[{RowBox[{\\\"Sin\
+\\\", \\\"[\\\", \\\"\[Phi]\\\", \\\"]\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"1\\\", \\\"-\\\", \\\"z\\\"}], \\\")\\\"}], \\\" \\\", \\\"0.328`\
+\\\", \\\" \\\", RowBox[{\\\"Radius\\\", \\\"[\\\", RowBox[{\\\"0\\\", \
+\\\",\\\", \\\"0.328`\\\", \\\",\\\", \\\"0\\\"}], \\\"]\\\"}]}], \\\",\\\", \
+RowBox[{\\\"0\\\", \\\" \\\", \\\"z\\\"}]}], \\\"}\\\"}], \\\",\\\", RowBox[{\
+\\\"{\\\", RowBox[{\\\"\[Phi]\\\", \\\",\\\", \\\"0\\\", \\\",\\\", \
+RowBox[{\\\"\[Pi]\\\", \\\"+\\\", RowBox[{RowBox[{\\\"ConeAngle\\\", \
+\\\"[\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"0.328`\\\", \\\",\\\", \
+\\\"0\\\"}], \\\"]\\\"}], \\\" \\\", \\\"\[Pi]\\\"}]}]}], \\\"}\\\"}], \
+\\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"z\\\", \\\",\\\", \\\"0\\\", \
+\\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"PlotStyle\\\", \\\
+\"\[Rule]\\\", \\\"Blue\\\"}], \\\",\\\", RowBox[{\\\"MeshFunctions\\\", \\\"\
+\[Rule]\\\", RowBox[{\\\"{\\\", RowBox[{\\\"#2\\\", \\\"&\\\"}], \
+\\\"}\\\"}]}], \\\",\\\", RowBox[{\\\"Boxed\\\", \\\"\[Rule]\\\", \\\"False\\\
+\"}], \\\",\\\", RowBox[{\\\"PlotRange\\\", \\\"\[Rule]\\\", RowBox[{\\\"1.5`\
+\\\", \\\" \\\", RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"2\\\"}], \\\",\\\", \\\"2\\\"}], \\\"}\\\"}], \
+\\\",\\\", RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"-\\\", \\\"2\\\"}], \\\",\\\
+\", \\\"2\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}]}], \\\"}\\\"}]}]}], \\\
+\",\\\", RowBox[{\\\"BoundaryStyle\\\", \\\"\[Rule]\\\", \
+InterpretationBox[ButtonBox[TooltipBox[GraphicsBox[List[List[GrayLevel[0], \
+RectangleBox[List[0, 0]]], List[GrayLevel[0], RectangleBox[List[1, -1]]], \
+List[GrayLevel[0.1`], RectangleBox[List[0, -1], List[2, 1]]]], \
+Rule[DefaultBaseStyle, \\\"ColorSwatchGraphics\\\"], Rule[AspectRatio, 1], \
+Rule[Frame, True], Rule[FrameStyle, GrayLevel[0.06666666666666668`]], \
+Rule[FrameTicks, None], Rule[PlotRangePadding, None], Rule[ImageSize, \
+Dynamic[List[Automatic, Times[1.35`, \
+Times[CurrentValue[\\\"FontCapHeight\\\"], \
+Power[AbsoluteCurrentValue[Magnification], -1]]]]]]], StyleBox[RowBox[List[\\\
+\"GrayLevel\\\", \\\"[\\\", \\\"0.1`\\\", \\\"]\\\"]], Rule[NumberMarks, \
+False]]], Rule[Appearance, None], Rule[BaseStyle, List[]], \
+Rule[BaselinePosition, Baseline], Rule[DefaultBaseStyle, List[]], \
+RuleDelayed[ButtonFunction, With[List[Set[Typeset`box$, EvaluationBox[]]], \
+If[Not[AbsoluteCurrentValue[\\\"Deployed\\\"]], \
+CompoundExpression[SelectionMove[Typeset`box$, All, Expression], \
+Set[FrontEnd`Private`$ColorSelectorInitialAlpha, 1], \
+Set[FrontEnd`Private`$ColorSelectorInitialColor, GrayLevel[0.1`]], \
+Set[FrontEnd`Private`$ColorSelectorUseMakeBoxes, True], \
+MathLink`CallFrontEnd[FrontEnd`AttachCell[Typeset`box$, \
+FrontEndResource[\\\"GrayLevelColorValueSelector\\\"], List[0, List[Left, \
+Bottom]], List[Left, Top], Rule[\\\"ClosingActions\\\", \
+List[\\\"SelectionDeparture\\\", \\\"ParentChanged\\\", \
+\\\"EvaluatorQuit\\\"]]]]]]]], Rule[BaseStyle, Inherited], Rule[Evaluator, \
+Automatic], Rule[Method, \\\"Preemptive\\\"]], GrayLevel[0.1`], \
+Rule[Editable, False], Rule[Selectable, False]]}], \\\",\\\", \
+RowBox[{\\\"PerformanceGoal\\\", \\\"\[Rule]\\\", \\\"\\\\\\\"Quality\\\\\\\"\
+\\\"}], \\\",\\\", RowBox[{\\\"Axes\\\", \\\"\[Rule]\\\", \\\"False\\\"}]}], \
+\\\"]\\\"}], \\\",\\\", Graphics3DBox[List[RGBColor[0, 1, 0], \
+Arrowheads[Medium], List[List[Arrow3DBox[List[List[Skeleton[3]], \
+List[Skeleton[3]]]], Text3DBox[FormBox[\\\"\\\\\\\"X\\\\\\\"\\\", \
+TraditionalForm], List[1.5`, 0.`, 0.`]]], \
+List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"Y\\\\\\\"\\\", TraditionalForm], List[0.`, \
+1.5`, 0.`]]], List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"Z\\\\\\\"\\\", TraditionalForm], List[0.`, 0.`, \
+1.5`]]]]]]}], \\\"]\\\"}]\\).\"", 2, 192, 201, 34094668452967596491, "Local"},
+  
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9033960098922453`*^9},
+ CellLabel->"",ExpressionUUID->"ef190199-fc8c-46d7-8955-41ca308666d1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Radius", "[", 
+    RowBox[{"h_", ",", "r_", ",", "\[Beta]_"}], "]"}], ":=", 
+   RowBox[{"x", "/.", " ", 
+    RowBox[{"First", "@", 
+     RowBox[{"Solve", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"2", " ", "\[Pi]", " ", "r"}], "-", 
+           RowBox[{"2", " ", "\[Pi]", " ", 
+            RowBox[{"Sqrt", "[", 
+             RowBox[{
+              RowBox[{"r", "^", "2"}], "-", 
+              RowBox[{"h", "^", "2"}]}], "]"}]}]}], "\[Equal]", 
+          RowBox[{"\[Theta]", " ", "r"}]}], ",", 
+         RowBox[{
+          RowBox[{"ArcSin", "[", 
+           RowBox[{"Sqrt", "[", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"4", " ", "\[Pi]", " ", "h"}], "-", 
+               RowBox[{"\[Theta]", " ", "h"}]}], ")"}], "/", 
+             RowBox[{"(", 
+              RowBox[{"2", " ", "\[Pi]"}], ")"}]}], "]"}], "]"}], "\[Equal]", 
+          "\[Beta]"}], ",", 
+         RowBox[{"h", ">", "0"}], ",", 
+         RowBox[{"r", ">", "0"}], ",", 
+         RowBox[{"\[Beta]", ">", "0"}], ",", 
+         RowBox[{"\[Theta]", ">", "0"}]}], "}"}], ",", "x", ",", "Reals"}], 
+      "]"}]}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Radius", "[", 
+    RowBox[{"0", ",", "0", ",", "0"}], "]"}], "=", "1"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"AnimatedCone", "[", 
+    RowBox[{"h_", ",", "r_", ",", "\[Theta]_", ",", "\[Beta]_", ",", "m_"}], 
+    "]"}], ":=", 
+   RowBox[{"ParametricPlot3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", "z"}], ")"}], " ", "m", " ", 
+        RowBox[{"Radius", "[", 
+         RowBox[{"h", ",", "r", ",", "\[Beta]"}], "]"}]}], ",", 
+       RowBox[{
+        RowBox[{"Sin", "[", "\[Theta]", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", "z"}], ")"}], " ", "m", " ", 
+        RowBox[{"Radius", "[", 
+         RowBox[{"h", ",", "r", ",", "\[Beta]"}], "]"}]}], ",", 
+       RowBox[{"h", " ", "z"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Theta]", ",", "0", ",", 
+       RowBox[{"Pi", "+", 
+        RowBox[{"h", " ", "Pi"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z", ",", "0", ",", "1"}], "}"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", "Blue"}], ",", 
+     RowBox[{"MeshFunctions", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"#2", "&"}], "}"}]}], ",", 
+     RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"1.5", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}]}], ",", 
+     RowBox[{"BoundaryStyle", "\[Rule]", 
+      RowBox[{"GrayLevel", "[", ".1", "]"}]}], ",", 
+     RowBox[{"PerformanceGoal", "\[Rule]", "\"\<Quality\>\""}], ",", 
+     RowBox[{"Axes", "\[Rule]", "False"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"axes", "=", 
+    RowBox[{"Graphics3D", "[", 
+     RowBox[{"{", 
+      RowBox[{"Green", ",", 
+       RowBox[{"Arrowheads", "[", "Medium", "]"}], ",", 
+       RowBox[{"MapThread", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Arrow", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+               RowBox[{"1.4", " ", "#2"}]}], "}"}], "]"}], ",", 
+            RowBox[{"Text", "[", 
+             RowBox[{"#", ",", 
+              RowBox[{"1.5", " ", "#2"}]}], "]"}]}], "}"}], "&"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"\"\<X\>\"", ",", "\"\<Y\>\"", ",", "\"\<Z\>\""}], "}"}], 
+           ",", 
+           RowBox[{"IdentityMatrix", "[", "3", "]"}]}], "}"}]}], "]"}]}], 
+      "}"}], "]"}]}], ";"}], "\n"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"AnimatedCone", "[", 
+      RowBox[{"h", ",", "r", ",", "\[Theta]", ",", "\[Beta]", ",", "m"}], 
+      "]"}], ",", "axes"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"h", ",", "0", ",", "\"\<height\>\""}], "}"}], ",", "0", ",", 
+     "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"r", ",", "1", ",", "\"\<initial radius\>\""}], "}"}], ",", 
+     "0.1", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Theta]", ",", "0", ",", "\"\<theta\>\""}], "}"}], ",", "0.1",
+      ",", 
+     RowBox[{"8", " ", "\[Pi]"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Beta]", ",", "0", ",", "\"\<beta\>\""}], "}"}], ",", "0.1", 
+     ",", 
+     RowBox[{"\[Pi]", "/", "2"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"m", ",", "1", ",", "\"\<scale factor\>\""}], "}"}], ",", "0.1",
+      ",", "2"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.903396041582158*^9, 3.903396041600177*^9}},
+ CellLabel->
+  "In[192]:=",ExpressionUUID->"c42631b8-a29b-47c5-a5c9-824b4d818a98"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`h$$ = 0.428, $CellContext`m$$ = 
+    1.1840000000000002`, $CellContext`r$$ = 1.87, $CellContext`\[Beta]$$ = 
+    0.6736105674500097, $CellContext`\[Theta]$$ = 6.858840131753954, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`h$$], 0, "height"}, 0, 1}, {{
+       Hold[$CellContext`r$$], 1, "initial radius"}, 0.1, 5}, {{
+       Hold[$CellContext`\[Theta]$$], 0, "theta"}, 0.1, 8 Pi}, {{
+       Hold[$CellContext`\[Beta]$$], 0, "beta"}, 0.1, Rational[1, 2] Pi}, {{
+       Hold[$CellContext`m$$], 1, "scale factor"}, 0.1, 2}}, 
+    Typeset`size$$ = {538., {45., 50.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`h$$ = 0, $CellContext`m$$ = 
+        1, $CellContext`r$$ = 1, $CellContext`\[Beta]$$ = 
+        0, $CellContext`\[Theta]$$ = 0}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[
+        $CellContext`AnimatedCone[$CellContext`h$$, $CellContext`r$$, \
+$CellContext`\[Theta]$$, $CellContext`\[Beta]$$, $CellContext`m$$], \
+$CellContext`axes], 
+      "Specifications" :> {{{$CellContext`h$$, 0, "height"}, 0, 
+         1}, {{$CellContext`r$$, 1, "initial radius"}, 0.1, 
+         5}, {{$CellContext`\[Theta]$$, 0, "theta"}, 0.1, 8 
+         Pi}, {{$CellContext`\[Beta]$$, 0, "beta"}, 0.1, Rational[1, 2] 
+         Pi}, {{$CellContext`m$$, 1, "scale factor"}, 0.1, 2}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{583., {146., 152.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.903396043204896*^9},
+ CellLabel->
+  "Out[196]=",ExpressionUUID->"7e3d7b8c-777c-481e-9284-0c01a8a73918"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "StringForm", "sfr", 
+   "\"Item \\!\\(\\*RowBox[{\\\"2\\\"}]\\) requested in \\\"\\!\\(\\*RowBox[{\
+\\\"\\\\\\\"`1` cannot be interpreted. The operator `2` requires a subscript \
+with a variable specification.\\\\\\\"\\\"}]\\)\\\" out of range; \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) items available.\"", 2, 197, 391, 
+   34094668452967596491, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.90339604697229*^9},
+ CellLabel->"",ExpressionUUID->"0f8ea4bf-d464-4429-9aa6-a8f1a0b022a7"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Internal`LocalizedBlock", "novar", 
+   "\"\\!\\(\\*RowBox[{\\\"6.858840131753954`\\\"}]\\) cannot be interpreted. \
+The operator `2` requires a subscript with a variable specification.\"", 2, 
+   197, 390, 34094668452967596491, "Local", "Internal`LocalizedBlock"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.903396047035943*^9},
+ CellLabel->"",ExpressionUUID->"5caeba5f-ead5-46cd-9e13-36972994abd7"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show", "gcomb", 
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\",\\\", \
+Graphics3DBox[List[RGBColor[0, 1, 0], Arrowheads[Medium], \
+List[List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"X\\\\\\\"\\\", TraditionalForm], List[1.5`, \
+0.`, 0.`]]], List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"Y\\\\\\\"\\\", TraditionalForm], List[0.`, \
+1.5`, 0.`]]], List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"Z\\\\\\\"\\\", TraditionalForm], List[0.`, 0.`, \
+1.5`]]]]]]}], \\\"]\\\"}]\\).\"", 2, 197, 392, 34094668452967596491, "Local"},
+  
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.90339604708177*^9},
+ CellLabel->"",ExpressionUUID->"28f76989-0764-43a5-bfab-ff89e50bf6af"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "StringForm", "sfr", 
+   "\"Item \\!\\(\\*RowBox[{\\\"2\\\"}]\\) requested in \\\"\\!\\(\\*RowBox[{\
+\\\"\\\\\\\"`1` cannot be interpreted. The operator `2` requires a subscript \
+with a variable specification.\\\\\\\"\\\"}]\\)\\\" out of range; \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) items available.\"", 2, 197, 514, 
+   34094668452967596491, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.903396051459054*^9},
+ CellLabel->"",ExpressionUUID->"32e7cf0b-8f3d-4a70-a043-7a6fbf07a3a0"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Internal`LocalizedBlock", "novar", 
+   "\"\\!\\(\\*RowBox[{\\\"6.858840131753954`\\\"}]\\) cannot be interpreted. \
+The operator `2` requires a subscript with a variable specification.\"", 2, 
+   197, 513, 34094668452967596491, "Local", "Internal`LocalizedBlock"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.903396051466983*^9},
+ CellLabel->"",ExpressionUUID->"5d6606dd-3089-4eef-a91d-40e4c3558b56"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show", "gcomb", 
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\",\\\", \
+Graphics3DBox[List[RGBColor[0, 1, 0], Arrowheads[Medium], \
+List[List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"X\\\\\\\"\\\", TraditionalForm], List[1.5`, \
+0.`, 0.`]]], List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"Y\\\\\\\"\\\", TraditionalForm], List[0.`, \
+1.5`, 0.`]]], List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"Z\\\\\\\"\\\", TraditionalForm], List[0.`, 0.`, \
+1.5`]]]]]]}], \\\"]\\\"}]\\).\"", 2, 197, 515, 34094668452967596491, "Local"},
+  
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.903396051515196*^9},
+ CellLabel->"",ExpressionUUID->"fa3ca2d3-a734-4a5d-bfa1-757d0e3fc319"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "StringForm", "sfr", 
+   "\"Item \\!\\(\\*RowBox[{\\\"2\\\"}]\\) requested in \\\"\\!\\(\\*RowBox[{\
+\\\"\\\\\\\"`1` cannot be interpreted. The operator `2` requires a subscript \
+with a variable specification.\\\\\\\"\\\"}]\\)\\\" out of range; \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) items available.\"", 2, 197, 526, 
+   34094668452967596491, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.903396054206544*^9},
+ CellLabel->"",ExpressionUUID->"21b285d3-110a-4bdc-9e59-bf529ccf11c9"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Internal`LocalizedBlock", "novar", 
+   "\"\\!\\(\\*RowBox[{\\\"6.858840131753954`\\\"}]\\) cannot be interpreted. \
+The operator `2` requires a subscript with a variable specification.\"", 2, 
+   197, 525, 34094668452967596491, "Local", "Internal`LocalizedBlock"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.903396054218849*^9},
+ CellLabel->"",ExpressionUUID->"8a7cb318-01b8-4361-b51c-a12d17bc8ada"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show", "gcomb", 
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\",\\\", \
+Graphics3DBox[List[RGBColor[0, 1, 0], Arrowheads[Medium], \
+List[List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"X\\\\\\\"\\\", TraditionalForm], List[1.5`, \
+0.`, 0.`]]], List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"Y\\\\\\\"\\\", TraditionalForm], List[0.`, \
+1.5`, 0.`]]], List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"Z\\\\\\\"\\\", TraditionalForm], List[0.`, 0.`, \
+1.5`]]]]]]}], \\\"]\\\"}]\\).\"", 2, 197, 527, 34094668452967596491, "Local"},
+  
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.903396054240322*^9},
+ CellLabel->"",ExpressionUUID->"cf9ef7ed-6e51-49f2-93ff-d4b70961e4ac"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show", "gcomb", 
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"AnimatedCone\\\", \\\"[\\\", RowBox[{\\\"0.428`\\\", \
+\\\",\\\", \\\"1.87`\\\", \\\",\\\", \\\"6.858840131753954`\\\", \\\",\\\", \
+\\\"0.6736105674500097`\\\", \\\",\\\", \\\"1.1840000000000002`\\\"}], \
+\\\"]\\\"}], \\\",\\\", Graphics3DBox[List[RGBColor[0, 1, 0], \
+Arrowheads[Medium], List[List[Arrow3DBox[List[List[Skeleton[3]], \
+List[Skeleton[3]]]], Text3DBox[FormBox[\\\"\\\\\\\"X\\\\\\\"\\\", \
+TraditionalForm], List[1.5`, 0.`, 0.`]]], \
+List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"Y\\\\\\\"\\\", TraditionalForm], List[0.`, \
+1.5`, 0.`]]], List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"Z\\\\\\\"\\\", TraditionalForm], List[0.`, 0.`, \
+1.5`]]]]]]}], \\\"]\\\"}]\\).\"", 2, 39, 79, 34114002189470414040, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.906324999458324*^9},
+ CellLabel->"",ExpressionUUID->"50de3ac0-75e8-4c10-9d39-1015a4579bec"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Radius", "[", 
+    RowBox[{"h_", ",", "\[Beta]_"}], "]"}], "=", 
+   RowBox[{"r", "/.", " ", 
+    RowBox[{"First", "@", 
+     RowBox[{"Solve", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"2", " ", "\[Pi]", " ", "r"}], "-", 
+           RowBox[{"2", " ", "\[Pi]", " ", 
+            RowBox[{"Sqrt", "[", 
+             RowBox[{
+              RowBox[{"r", "^", "2"}], "-", 
+              RowBox[{"h", "^", "2"}]}], "]"}]}]}], "\[Equal]", 
+          RowBox[{"\[Theta]", " ", "r"}]}], ",", 
+         RowBox[{"h", ">", "0"}], ",", 
+         RowBox[{"\[Beta]", "\[Equal]", 
+          RowBox[{"ArcSin", "[", 
+           RowBox[{
+            RowBox[{"Sqrt", "[", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"4", " ", "\[Pi]"}], "-", "\[Theta]"}], ")"}], " ", 
+              "\[Theta]"}], "]"}], "/", 
+            RowBox[{"(", 
+             RowBox[{"2", " ", "\[Pi]"}], ")"}]}], "]"}]}]}], "}"}], ",", "r",
+        ",", "Reals"}], "]"}]}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Radius", "[", "0", "]"}], "=", "1"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"AnimatedCone", "[", 
+    RowBox[{"h_", ",", "m_", ",", "\[Theta]_", ",", "\[Beta]_"}], "]"}], ":=", 
+   RowBox[{"ParametricPlot3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Phi]", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", "z"}], ")"}], " ", "m", " ", 
+        RowBox[{"Radius", "[", 
+         RowBox[{"h", ",", "\[Beta]"}], "]"}]}], ",", 
+       RowBox[{
+        RowBox[{"Sin", "[", "\[Phi]", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", "z"}], ")"}], " ", "m", " ", 
+        RowBox[{"Radius", "[", 
+         RowBox[{"h", ",", "\[Beta]"}], "]"}]}], ",", 
+       RowBox[{"h", " ", "z"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Phi]", ",", "0", ",", 
+       RowBox[{"\[Beta]", "+", 
+        RowBox[{"h", " ", "\[Beta]"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z", ",", "0", ",", "1"}], "}"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", "Blue"}], ",", 
+     RowBox[{"MeshFunctions", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"#2", "&"}], "}"}]}], ",", 
+     RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"1.5", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}]}], ",", 
+     RowBox[{"BoundaryStyle", "\[Rule]", 
+      RowBox[{"GrayLevel", "[", ".1", "]"}]}], ",", 
+     RowBox[{"PerformanceGoal", "\[Rule]", "\"\<Quality\>\""}], ",", 
+     RowBox[{"Axes", "\[Rule]", "False"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"axes", "=", 
+   RowBox[{"Graphics3D", "[", 
+    RowBox[{"{", 
+     RowBox[{"Green", ",", 
+      RowBox[{"Arrowheads", "[", "Medium", "]"}], ",", 
+      RowBox[{"MapThread", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Arrow", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+              RowBox[{"1.4", " ", "#2"}]}], "}"}], "]"}], ",", 
+           RowBox[{"Text", "[", 
+            RowBox[{"#", ",", 
+             RowBox[{"1.5", " ", "#2"}]}], "]"}]}], "}"}], "&"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"\"\<X\>\"", ",", "\"\<Y\>\"", ",", "\"\<Z\>\""}], "}"}], 
+          ",", 
+          RowBox[{"IdentityMatrix", "[", "3", "]"}]}], "}"}]}], "]"}]}], 
+     "}"}], "]"}]}], ";"}], "\n", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"AnimatedCone", "[", 
+      RowBox[{"h", ",", "m", ",", "\[Theta]", ",", "\[Beta]"}], "]"}], ",", 
+     "axes"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"h", ",", "0", ",", "\"\<height\>\""}], "}"}], ",", "0", ",", 
+     "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"m", ",", "1", ",", "\"\<scale factor\>\""}], "}"}], ",", "0.1",
+      ",", "m2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Theta]", ",", "0", ",", "\"\<\[Theta] value\>\""}], "}"}], 
+     ",", "0", ",", 
+     RowBox[{"2", " ", "\[Pi]"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Beta]", ",", "0.2", ",", "\"\<\[Beta] value\>\""}], "}"}], 
+     ",", "0.1", ",", "\[Pi]"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.9033960781995153`*^9, 3.903396078217997*^9}},
+ CellLabel->
+  "In[197]:=",ExpressionUUID->"d30b3c45-c36e-4662-a790-94972e0f8a38"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "First", "nofirst", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", \\\"}\\\"}]\\) has zero length and no first \
+element.\"", 2, 197, 528, 34094668452967596491, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.90339607957555*^9},
+ CellLabel->
+  "During evaluation of \
+In[197]:=",ExpressionUUID->"8279c36c-7809-4f2b-8d51-f7afbe79155a"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceAll", "reps", 
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"First\\\", \\\"[\\\", \
+RowBox[{\\\"{\\\", \\\"}\\\"}], \\\"]\\\"}], \\\"}\\\"}]\\) is neither a list \
+of replacement rules nor a valid dispatch table, and so cannot be used for \
+replacing.\"", 2, 197, 529, 34094668452967596491, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.903396079645327*^9},
+ CellLabel->
+  "During evaluation of \
+In[197]:=",ExpressionUUID->"1f7d39c4-ba23-47aa-9328-da9821079252"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`h$$ = 0.15, $CellContext`m$$ = 0.0464 + 
+    0.536 $CellContext`m2, $CellContext`\[Beta]$$ = 
+    0.8421486074759095, $CellContext`\[Theta]$$ = 2.0860175219836226`, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`h$$], 0, "height"}, 0, 1}, {{
+       Hold[$CellContext`m$$], 1, "scale factor"}, 0.1, $CellContext`m2}, {{
+       Hold[$CellContext`\[Theta]$$], 0, "\[Theta] value"}, 0, 2 Pi}, {{
+       Hold[$CellContext`\[Beta]$$], 0.2, "\[Beta] value"}, 0.1, Pi}}, 
+    Typeset`size$$ = {567., {45., 50.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`h$$ = 0, $CellContext`m$$ = 
+        1, $CellContext`\[Beta]$$ = 0.2, $CellContext`\[Theta]$$ = 0}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[
+        $CellContext`AnimatedCone[$CellContext`h$$, $CellContext`m$$, \
+$CellContext`\[Theta]$$, $CellContext`\[Beta]$$], $CellContext`axes], 
+      "Specifications" :> {{{$CellContext`h$$, 0, "height"}, 0, 
+         1}, {{$CellContext`m$$, 1, "scale factor"}, 
+         0.1, $CellContext`m2}, {{$CellContext`\[Theta]$$, 0, 
+          "\[Theta] value"}, 0, 2 
+         Pi}, {{$CellContext`\[Beta]$$, 0.2, "\[Beta] value"}, 0.1, Pi}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{612., {132., 138.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.903396079658493*^9},
+ CellLabel->
+  "Out[201]=",ExpressionUUID->"929cee8d-288e-457c-9738-4e5088620f9f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "StringForm", "sfr", 
+   "\"Item \\!\\(\\*RowBox[{\\\"2\\\"}]\\) requested in \\\"\\!\\(\\*RowBox[{\
+\\\"\\\\\\\"`1` cannot be interpreted. The operator `2` requires a subscript \
+with a variable specification.\\\\\\\"\\\"}]\\)\\\" out of range; \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) items available.\"", 2, 207, 534, 
+   34094668452967596491, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.903396115724492*^9},
+ CellLabel->"",ExpressionUUID->"f8944eae-4f80-47b2-865a-706284569c27"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Internal`LocalizedBlock", "novar", 
+   "\"\\!\\(\\*RowBox[{\\\"2.0860175219836226`\\\"}]\\) cannot be \
+interpreted. The operator `2` requires a subscript with a variable \
+specification.\"", 2, 207, 533, 34094668452967596491, "Local", 
+   "Internal`LocalizedBlock"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.9033961157862387`*^9},
+ CellLabel->"",ExpressionUUID->"968571a8-7746-4ebb-b078-c7e453b79f03"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show", "gcomb", 
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\",\\\", \
+Graphics3DBox[List[RGBColor[0, 1, 0], Arrowheads[Medium], \
+List[List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"X\\\\\\\"\\\", TraditionalForm], List[1.5`, \
+0.`, 0.`]]], List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"Y\\\\\\\"\\\", TraditionalForm], List[0.`, \
+1.5`, 0.`]]], List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"Z\\\\\\\"\\\", TraditionalForm], List[0.`, 0.`, \
+1.5`]]]]]]}], \\\"]\\\"}]\\).\"", 2, 207, 535, 34094668452967596491, "Local"},
+  
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9033961158381777`*^9},
+ CellLabel->"",ExpressionUUID->"2bd8a59f-7fef-4f76-8cc9-a30cdf06a507"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show", "gcomb", 
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"AnimatedCone\\\", \\\"[\\\", RowBox[{\\\"0.15`\\\", \\\",\
+\\\", RowBox[{RowBox[{\\\"0.0464`\\\", \\\"\[VeryThinSpace]\\\"}], \\\"+\\\", \
+RowBox[{\\\"0.536`\\\", \\\" \\\", \\\"m2\\\"}]}], \\\",\\\", \
+\\\"2.0860175219836226`\\\", \\\",\\\", \\\"0.8421486074759095`\\\"}], \
+\\\"]\\\"}], \\\",\\\", Graphics3DBox[List[RGBColor[0, 1, 0], \
+Arrowheads[Medium], List[List[Arrow3DBox[List[List[Skeleton[3]], \
+List[Skeleton[3]]]], Text3DBox[FormBox[\\\"\\\\\\\"X\\\\\\\"\\\", \
+TraditionalForm], List[1.5`, 0.`, 0.`]]], \
+List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"Y\\\\\\\"\\\", TraditionalForm], List[0.`, \
+1.5`, 0.`]]], List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"Z\\\\\\\"\\\", TraditionalForm], List[0.`, 0.`, \
+1.5`]]]]]]}], \\\"]\\\"}]\\).\"", 2, 39, 80, 34114002189470414040, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.906324999695983*^9},
+ CellLabel->"",ExpressionUUID->"04870eda-66da-4545-ac57-64c4cbb349ca"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Radius", "[", "h_", "]"}], "=", 
+   RowBox[{"r", "/.", " ", 
+    RowBox[{"First", "@", 
+     RowBox[{"Solve", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"4", " ", "\[Pi]", " ", 
+            RowBox[{"r", "^", "2"}], " ", "\[Theta]"}], "-", 
+           RowBox[{
+            RowBox[{"r", "^", "2"}], " ", 
+            RowBox[{"\[Theta]", "^", "2"}]}]}], "\[Equal]", 
+          RowBox[{"2", " ", 
+           RowBox[{"\[Pi]", "^", "2"}], " ", 
+           RowBox[{"h", "^", "2"}]}]}], ",", 
+         RowBox[{"h", ">", "0"}]}], "}"}], ",", "r", ",", "Reals"}], 
+      "]"}]}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Radius", "[", "0", "]"}], "=", "1"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"AnimatedCone", "[", 
+    RowBox[{"h_", ",", "m_", ",", "\[Theta]_", ",", "\[Beta]_"}], "]"}], ":=", 
+   RowBox[{"ParametricPlot3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", "z"}], ")"}], " ", "m", " ", 
+        RowBox[{"Radius", "[", "h", "]"}]}], ",", 
+       RowBox[{
+        RowBox[{"Sin", "[", "\[Theta]", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", "z"}], ")"}], " ", "m", " ", 
+        RowBox[{"Radius", "[", "h", "]"}]}], ",", 
+       RowBox[{"h", " ", "z"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Theta]", ",", "0", ",", 
+       RowBox[{"2", " ", "\[Pi]", " ", "\[Beta]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z", ",", "0", ",", "1"}], "}"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", "Blue"}], ",", 
+     RowBox[{"MeshFunctions", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"#2", "&"}], "}"}]}], ",", 
+     RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"1.5", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}]}], ",", 
+     RowBox[{"BoundaryStyle", "\[Rule]", 
+      RowBox[{"GrayLevel", "[", ".1", "]"}]}], ",", 
+     RowBox[{"PerformanceGoal", "\[Rule]", "\"\<Quality\>\""}], ",", 
+     RowBox[{"Axes", "\[Rule]", "False"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"axes", "=", 
+   RowBox[{"Graphics3D", "[", 
+    RowBox[{"{", 
+     RowBox[{"Green", ",", 
+      RowBox[{"Arrowheads", "[", "Medium", "]"}], ",", 
+      RowBox[{"MapThread", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Arrow", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+              RowBox[{"1.4", " ", "#2"}]}], "}"}], "]"}], ",", 
+           RowBox[{"Text", "[", 
+            RowBox[{"#", ",", 
+             RowBox[{"1.5", " ", "#2"}]}], "]"}]}], "}"}], "&"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"\"\<X\>\"", ",", "\"\<Y\>\"", ",", "\"\<Z\>\""}], "}"}], 
+          ",", 
+          RowBox[{"IdentityMatrix", "[", "3", "]"}]}], "}"}]}], "]"}]}], 
+     "}"}], "]"}]}], ";"}], "\n", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"AnimatedCone", "[", 
+      RowBox[{"h", ",", "m", ",", "\[Theta]", ",", "\[Beta]"}], "]"}], ",", 
+     "axes"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"h", ",", "0", ",", "\"\<height\>\""}], "}"}], ",", "0", ",", 
+     "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"m", ",", "1", ",", "\"\<scale factor\>\""}], "}"}], ",", "0.1",
+      ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Theta]", ",", "0", ",", "\"\<sector angle\>\""}], "}"}], ",",
+      "0", ",", "Pi"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[Beta]", ",", "0", ",", 
+       "\"\<angle between hypoteneuse and base\>\""}], "}"}], ",", "0", ",", 
+     "1"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.9033961149928207`*^9, 3.903396115009239*^9}},
+ CellLabel->
+  "In[202]:=",ExpressionUUID->"ee23f465-ca1d-48be-b228-24462ff22382"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`h$$ = 0.274, $CellContext`m$$ = 
+    1, $CellContext`\[Beta]$$ = 0.45, $CellContext`\[Theta]$$ = 
+    1.156106096521044, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`h$$], 0, "height"}, 0, 1}, {{
+       Hold[$CellContext`m$$], 1, "scale factor"}, 0.1, 2}, {{
+       Hold[$CellContext`\[Theta]$$], 0, "sector angle"}, 0, Pi}, {{
+       Hold[$CellContext`\[Beta]$$], 0, "angle between hypoteneuse and base"},
+       0, 1}}, Typeset`size$$ = {432., {45., 50.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`h$$ = 0, $CellContext`m$$ = 
+        1, $CellContext`\[Beta]$$ = 0, $CellContext`\[Theta]$$ = 0}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[
+        $CellContext`AnimatedCone[$CellContext`h$$, $CellContext`m$$, \
+$CellContext`\[Theta]$$, $CellContext`\[Beta]$$], $CellContext`axes], 
+      "Specifications" :> {{{$CellContext`h$$, 0, "height"}, 0, 
+         1}, {{$CellContext`m$$, 1, "scale factor"}, 0.1, 
+         2}, {{$CellContext`\[Theta]$$, 0, "sector angle"}, 0, 
+         Pi}, {{$CellContext`\[Beta]$$, 0, 
+          "angle between hypoteneuse and base"}, 0, 1}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{477., {132., 138.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.903396115606368*^9},
+ CellLabel->
+  "Out[206]=",ExpressionUUID->"18fa9345-21ee-4400-b7a2-6040fdbc58ce"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show", "gcomb", 
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"AnimatedCone\\\", \\\"[\\\", RowBox[{\\\"0.274`\\\", \
+\\\",\\\", \\\"1\\\", \\\",\\\", \\\"1.156106096521044`\\\", \\\",\\\", \
+\\\"0.45`\\\"}], \\\"]\\\"}], \\\",\\\", Graphics3DBox[List[RGBColor[0, 1, \
+0], Arrowheads[Medium], List[List[Arrow3DBox[List[List[Skeleton[3]], \
+List[Skeleton[3]]]], Text3DBox[FormBox[\\\"\\\\\\\"X\\\\\\\"\\\", \
+TraditionalForm], List[1.5`, 0.`, 0.`]]], \
+List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"Y\\\\\\\"\\\", TraditionalForm], List[0.`, \
+1.5`, 0.`]]], List[Arrow3DBox[List[List[Skeleton[3]], List[Skeleton[3]]]], \
+Text3DBox[FormBox[\\\"\\\\\\\"Z\\\\\\\"\\\", TraditionalForm], List[0.`, 0.`, \
+1.5`]]]]]]}], \\\"]\\\"}]\\).\"", 2, 39, 81, 34114002189470414040, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.906324999993363*^9},
+ CellLabel->"",ExpressionUUID->"f9089bfb-588c-4236-bd01-434349df141f"]
+}, Open  ]]
+},
+WindowSize->{812, 824},
+WindowMargins->{{163, Automatic}, {0, Automatic}},
+FrontEndVersion->"12.2 for Mac OS X x86 (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"1fa44d3a-3b27-45a8-aa9a-920bf22d42ed"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 4003, 115, 283, "Input",ExpressionUUID->"7b11d1af-eab7-4995-9e6f-8201d1a85505"],
+Cell[CellGroupData[{
+Cell[4586, 139, 4194, 120, 283, "Input",ExpressionUUID->"a0804ad6-b48d-451a-9c68-2a4dcbb2caad"],
+Cell[8783, 261, 2301, 48, 515, "Output",ExpressionUUID->"1f9ffbc3-baca-4579-921d-2100e287e9a4"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11121, 314, 4836, 143, 388, "Input",ExpressionUUID->"995475c4-f9ff-4f23-82f4-eb02f17d68eb"],
+Cell[15960, 459, 1634, 33, 473, "Output",ExpressionUUID->"b7ae97b3-3447-4cd4-85a6-61cbf39bbc39"]
+}, Open  ]],
+Cell[17609, 495, 730, 20, 66, "Input",ExpressionUUID->"e5c23280-638c-4ef1-8100-5ffccc38720b"],
+Cell[CellGroupData[{
+Cell[18364, 519, 5293, 149, 418, "Input",ExpressionUUID->"29832913-7a68-4f7d-8d82-5a129e061089"],
+Cell[23660, 670, 2299, 49, 515, "Output",ExpressionUUID->"a2045a34-78bd-4663-a10a-fefabb3530bb"],
+Cell[25962, 721, 4780, 73, 75, "Message",ExpressionUUID->"5d8bbffc-5690-423a-b28e-8b8a6a781bf8"],
+Cell[30745, 796, 9280, 139, 176, "Message",ExpressionUUID->"f7d2c21f-c2b6-4daa-9dd0-7975a8667505"],
+Cell[40028, 937, 4780, 73, 75, "Message",ExpressionUUID->"dc1b5d84-a5e4-459e-88ef-ff7f276df0e1"],
+Cell[44811, 1012, 9280, 139, 176, "Message",ExpressionUUID->"9ce27e19-dba6-47b4-b62e-6b76c8c9ec9b"]
+}, Open  ]],
+Cell[54106, 1154, 147, 3, 52, "Input",ExpressionUUID->"48e588e4-36a5-46ac-a43d-79425fd317f9"],
+Cell[CellGroupData[{
+Cell[54278, 1161, 5453, 156, 346, "Input",ExpressionUUID->"7bae3f31-1743-49cc-9346-4e4001e3cc9b"],
+Cell[59734, 1319, 2218, 43, 529, "Output",ExpressionUUID->"ec7074cc-eb58-442b-a6d9-2542d6641543"],
+Cell[61955, 1364, 345, 7, 24, "Message",ExpressionUUID->"bc567ccc-3a1c-4b5e-bdfc-e3d8a732142d"],
+Cell[62303, 1373, 494, 9, 24, "Message",ExpressionUUID->"abd6c557-11c1-489a-9817-01e5e90af9e3"],
+Cell[62800, 1384, 956, 16, 39, "Message",ExpressionUUID->"cde826fa-51b1-4506-b2fd-cec372494e13"],
+Cell[63759, 1402, 4640, 70, 176, "Message",ExpressionUUID->"e66a5ed3-f69d-4b44-9846-9e32512d8dae"],
+Cell[68402, 1474, 343, 7, 24, "Message",ExpressionUUID->"59669a8a-6d50-4caa-b4a2-d754818b15c1"],
+Cell[68748, 1483, 494, 9, 24, "Message",ExpressionUUID->"fd6726d8-32bf-48bf-9b1c-4115ede13e3f"],
+Cell[69245, 1494, 954, 16, 39, "Message",ExpressionUUID->"539565f8-ac4d-45df-88be-a3a1561d764b"],
+Cell[70202, 1512, 4640, 70, 176, "Message",ExpressionUUID->"c8bc9e15-b980-45d2-9dd9-1d77c80a18da"],
+Cell[74845, 1584, 345, 7, 24, "Message",ExpressionUUID->"f05070bf-5ea1-46b7-a532-511c238ab011"],
+Cell[75193, 1593, 494, 9, 24, "Message",ExpressionUUID->"d8dd97b0-e4d7-4b86-8100-1fd9a48065a9"],
+Cell[75690, 1604, 959, 16, 39, "Message",ExpressionUUID->"ce26d1d2-8ad0-4db1-955a-6b5ac1912478"],
+Cell[76652, 1622, 4713, 71, 193, "Message",ExpressionUUID->"37669d4d-7f1c-4c1e-9c83-561287a7330b"],
+Cell[81368, 1695, 343, 7, 24, "Message",ExpressionUUID->"0cdfc560-d5b8-4f56-9d49-66d7d95feb0b"],
+Cell[81714, 1704, 494, 9, 24, "Message",ExpressionUUID->"967f43ed-0aac-4ec6-b764-19bc65e4edf1"],
+Cell[82211, 1715, 961, 16, 39, "Message",ExpressionUUID->"e30cff9d-80c5-4e50-bd60-30311ff69385"],
+Cell[83175, 1733, 4713, 71, 193, "Message",ExpressionUUID->"ef190199-fc8c-46d7-8955-41ca308666d1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[87925, 1809, 5405, 153, 388, "Input",ExpressionUUID->"c42631b8-a29b-47c5-a5c9-824b4d818a98"],
+Cell[93333, 1964, 2533, 48, 317, "Output",ExpressionUUID->"7e3d7b8c-777c-481e-9284-0c01a8a73918"],
+Cell[95869, 2014, 533, 10, 39, "Message",ExpressionUUID->"0f8ea4bf-d464-4429-9aa6-a8f1a0b022a7"],
+Cell[96405, 2026, 451, 8, 39, "Message",ExpressionUUID->"5caeba5f-ead5-46cd-9e13-36972994abd7"],
+Cell[96859, 2036, 925, 16, 105, "Message",ExpressionUUID->"28f76989-0764-43a5-bfab-ff89e50bf6af"],
+Cell[97787, 2054, 534, 10, 39, "Message",ExpressionUUID->"32e7cf0b-8f3d-4a70-a043-7a6fbf07a3a0"],
+Cell[98324, 2066, 451, 8, 39, "Message",ExpressionUUID->"5d6606dd-3089-4eef-a91d-40e4c3558b56"],
+Cell[98778, 2076, 926, 16, 105, "Message",ExpressionUUID->"fa3ca2d3-a734-4a5d-bfa1-757d0e3fc319"],
+Cell[99707, 2094, 534, 10, 39, "Message",ExpressionUUID->"21b285d3-110a-4bdc-9e59-bf529ccf11c9"],
+Cell[100244, 2106, 451, 8, 39, "Message",ExpressionUUID->"8a7cb318-01b8-4361-b51c-a12d17bc8ada"],
+Cell[100698, 2116, 926, 16, 105, "Message",ExpressionUUID->"cf9ef7ed-6e51-49f2-93ff-d4b70961e4ac"],
+Cell[101627, 2134, 1137, 19, 105, "Message",ExpressionUUID->"50de3ac0-75e8-4c10-9d39-1015a4579bec"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[102801, 2158, 4955, 141, 367, "Input",ExpressionUUID->"d30b3c45-c36e-4662-a790-94972e0f8a38"],
+Cell[107759, 2301, 377, 9, 24, "Message",ExpressionUUID->"8279c36c-7809-4f2b-8d51-f7afbe79155a"],
+Cell[108139, 2312, 529, 11, 24, "Message",ExpressionUUID->"1f7d39c4-ba23-47aa-9328-da9821079252"],
+Cell[108671, 2325, 2397, 46, 289, "Output",ExpressionUUID->"929cee8d-288e-457c-9738-4e5088620f9f"],
+Cell[111071, 2373, 534, 10, 39, "Message",ExpressionUUID->"f8944eae-4f80-47b2-865a-706284569c27"],
+Cell[111608, 2385, 456, 9, 39, "Message",ExpressionUUID->"968571a8-7746-4ebb-b078-c7e453b79f03"],
+Cell[112067, 2396, 928, 16, 105, "Message",ExpressionUUID->"2bd8a59f-7fef-4f76-8cc9-a30cdf06a507"],
+Cell[112998, 2414, 1207, 20, 141, "Message",ExpressionUUID->"04870eda-66da-4545-ac57-64c4cbb349ca"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[114242, 2439, 4453, 128, 304, "Input",ExpressionUUID->"ee23f465-ca1d-48be-b228-24462ff22382"],
+Cell[118698, 2569, 2344, 45, 289, "Output",ExpressionUUID->"18fa9345-21ee-4400-b7a2-6040fdbc58ce"],
+Cell[121045, 2616, 1077, 18, 105, "Message",ExpressionUUID->"f9089bfb-588c-4236-bd01-434349df141f"]
+}, Open  ]]
+}
+]
+*)
+
